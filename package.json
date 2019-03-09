@@ -1,0 +1,19 @@
+{
+  "name": "r-parts",
+  "version": "0.0.1",
+  "description": "a ui lib powered by react.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LarryKameZhao/r-parts.git"
+  },
+  "author": "LarrySSS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LarryKameZhao/r-parts/issues"
+  },
+  "homepage": "https://github.com/LarryKameZhao/r-parts#readme"
+}
