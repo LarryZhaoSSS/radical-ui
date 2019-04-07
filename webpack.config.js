@@ -9,7 +9,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist/lib'),
-        library: 'FUI',
+        library: 'r-parts',
         libraryTarget: 'umd',
     },
     module: {
@@ -17,7 +17,11 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'awesome-typescript-loader'
-            }
+            },
+          {
+            test: /\.scss$/,
+            use: ['style-loader', 'css-loader', 'sass-loader']
+          }
         ]
     },
 }
