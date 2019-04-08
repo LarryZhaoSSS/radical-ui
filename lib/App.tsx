@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Icon name="alipay" onClick={fn} onMouseLeave={()=>{console.log('leave')}}/>
+        <Icon  name="alipay" onClick={fn} onMouseLeave={()=>{console.log('leave')}}/>
       </div>
     )
   }
