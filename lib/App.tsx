@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Icon from "./icons/Icon";
+import Icon from "./icon/Icon";
 const fn:React.MouseEventHandler = (e) =>{
   console.log(e.target)
 }
