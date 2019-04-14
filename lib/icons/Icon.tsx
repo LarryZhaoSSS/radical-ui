@@ -1,12 +1,11 @@
 import * as React from 'react'
-import './fonts'
+import '../fonts'
 import './icon.scss'
-import  classes from './helpers/classnames'
+import  classes from '../helpers/classnames'
 interface IconProps extends React.SVGAttributes<SVGElement> {
   name: string;
 }
-const Icon: React.FunctionComponent<IconProps> = (props) => {
-  const {className,name, ...restProps} = props
+const Icon: React.FunctionComponent<IconProps> = ({className,name, ...restProps}) => {
   return (
     <svg className={classes("r-parts-icon", className)} {...restProps}
     >
