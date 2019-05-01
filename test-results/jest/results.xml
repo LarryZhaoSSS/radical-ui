@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="8" failures="0" time="8.406">
+  <testsuite name="classes" errors="0" failures="0" skipped="0" timestamp="2019-05-01T09:50:49" time="2.324" tests="4">
+    <testcase classname="classes 接受1个className" name="classes 接受1个className" time="0.008">
+    </testcase>
+    <testcase classname="classes 接受2个className" name="classes 接受2个className" time="0.001">
+    </testcase>
+    <testcase classname="classes 接受1个undefined" name="classes 接受1个undefined" time="0">
+    </testcase>
+    <testcase classname="classes 没有任何一个参数" name="classes 没有任何一个参数" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="button" errors="0" failures="0" skipped="0" timestamp="2019-05-01T09:50:49" time="2.412" tests="1">
+    <testcase classname="button 是个 div" name="button 是个 div" time="0.026">
+    </testcase>
+  </testsuite>
+  <testsuite name="icon" errors="0" failures="0" skipped="0" timestamp="2019-05-01T09:50:49" time="2.494" tests="2">
+    <testcase classname="icon render successfully" name="icon render successfully" time="0.023">
+    </testcase>
+    <testcase classname="icon onClick" name="icon onClick" time="0.056">
+    </testcase>
+  </testsuite>
+  <testsuite name="我的第一个测试用例" errors="0" failures="0" skipped="0" timestamp="2019-05-01T09:50:51" time="0.414" tests="1">
+    <testcase classname="我的第一个测试用例 add(1,2) 等于3" name="我的第一个测试用例 add(1,2) 等于3" time="0.002">
+    </testcase>
+  </testsuite>
+</testsuites>
