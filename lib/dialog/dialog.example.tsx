@@ -6,7 +6,9 @@ export default function () {
   return (
     <div>
       <button onClick={()=>setX(!x)}>click</button>
-      <Dialog visible={x}/>
+      <Dialog visible={x}>
+        <div>hi</div>
+      </Dialog>
     </div>
   )
 }
