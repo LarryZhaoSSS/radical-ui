@@ -1,0 +1,26 @@
+[class^=r-parts-] {
+  box-sizing: border-box;
+  &::after,&::before {
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+}
+button {
+  box-sizing: border-box;
+  height: 32px;
+  margin: 0 4px;
+  border-radius: 4px;
+  &:first-child {
+    margin-left:  0;
+
+  }
+  &:last-child{
+    margin-right:0;
+  }
+}
+.r-parts-dialog{
+  z-index:999;
+}
+.r-parts-dialog-mask{
+  z-index:998;
+}
