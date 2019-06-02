@@ -1,0 +1,21 @@
+.x {
+  background: #4285f4;
+  height: 40px;
+  margin: 4px 0;
+  color: white;
+}
+.y{
+  background: lighten(#4285f4,10%);
+  margin: 4px 0;
+  color: white;
+}
+.z{
+  background: #34a853;
+  width: 200px;
+  color: white;
+  margin: 4px 0;
+
+}
+.z+ .y, .y+ .z, .z+ .r-parts-layout{
+  margin-left: 8px;
+}

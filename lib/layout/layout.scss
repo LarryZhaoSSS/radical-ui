@@ -1,16 +1,19 @@
 @import '../helper';
 
 .r-parts-layout {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   &-content {
     flex-grow: 1;
-    border: 1px solid green;
   }
   & & {
     flex-grow: 1;
-    border: 1px solid blue;
     flex-direction: row;
+  }
+  &-hasAside {
+    flex-direction: row;
+    .r-parts-layout {
+      flex-direction: column;
+    }
   }
 }
