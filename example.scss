@@ -13,6 +13,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+pre {
+  font-family:"Fira Code Retina", monospace,Consolas;
+}
 $padding: 16px;
 $main-color:#00ADB5;
 $border-color: #eee;
@@ -53,4 +56,7 @@ $border-color: #eee;
   color: #666;
   padding: 16px 0;
   border-top: 1px solid $border-color;
+}
+.example{
+  padding: 16px 0;
 }
