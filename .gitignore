@@ -1,5 +1,6 @@
 /.idea
 /dist/*
+/doc/
 /test-results/
 .vscode
 # Logs
