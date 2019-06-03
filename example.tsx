@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { HashRouter as Router, Route, NavLink as Link } from 'react-router-dom'
+import {HashRouter as Router, Route, NavLink as Link} from 'react-router-dom'
 import './example.scss'
-import IconExample from './lib/icon/icon.example'
+// import IconExample from './lib/icon/icon.example'
 import ButtonExample from './lib/button.example'
 import DialogExample from './lib/dialog/dialog.example'
 import LayoutExamle from './lib/layout/layout.example'
@@ -11,6 +11,8 @@ import Aside from "./lib/layout/aside";
 import Footer from "./lib/layout/footer";
 import Content from "./lib/layout/content";
 import Layout from "./lib/layout/layout";
+import IconDemo from "./lib/icon/icon.demo";
+require('!!raw-loader!./lib/icon/icon.example.tsx')
 ReactDOM.render(
   <Router>
     <Layout className='site-page'>
@@ -33,9 +35,9 @@ ReactDOM.render(
           </ul>
         </Aside>
         <Content className='site-main'>
-          <Route path='/icon' component={IconExample} />
-          <Route path='/button' component={ButtonExample} />
-          <Route path='/dialog' component={DialogExample} />
+          <Route path='/icon' component={IconDemo}/>
+          <Route path='/button' component={ButtonExample}/>
+          <Route path='/dialog' component={DialogExample}/>
           <Route path='/layout' component={LayoutExamle}></Route>
         </Content>
       </Layout>
