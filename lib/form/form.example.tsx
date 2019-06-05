@@ -1,13 +1,13 @@
 import * as React from "react";
-import Form from "./form";
+import Form, {FormValue} from "./form";
 import {useState} from "react";
 
 const FormExample: React.FunctionComponent = () => {
-  const [formData] = useState({
+  const [formData, setFormData] = useState<FormValue>({
     username: '',
     password: ''
   })
-  const [fields, setFormData] = useState([
+  const [fields] = useState([
     {name: 'username', label: '用户名', input: {type: 'text'}},
     {name: 'password', label: '密码', input: {type: 'password'}}
 
