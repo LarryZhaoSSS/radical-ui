@@ -12,6 +12,7 @@ import Footer from "./lib/layout/footer";
 import Content from "./lib/layout/content";
 import Layout from "./lib/layout/layout";
 import IconDemo from "./lib/icon/icon.demo";
+import FormExample from "./lib/form/form.example"
 require('!!raw-loader!./lib/icon/icon.example.tsx')
 ReactDOM.render(
   <Router>
@@ -32,13 +33,15 @@ ReactDOM.render(
             <li>
               <Link to='/layout'> Layout </Link>
             </li>
+            <li><Link to='/form'>Form</Link></li>
           </ul>
         </Aside>
         <Content className='site-main'>
           <Route path='/icon' component={IconDemo}/>
           <Route path='/button' component={ButtonExample}/>
           <Route path='/dialog' component={DialogExample}/>
-          <Route path='/layout' component={LayoutExamle}></Route>
+          <Route path='/layout' component={LayoutExamle}/>
+          <Route path='/form' component={FormExample}/>
         </Content>
       </Layout>
       <Footer className='site-footer'>&copy; larrysss</Footer>
