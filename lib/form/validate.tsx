@@ -14,10 +14,11 @@ interface FormErrors {
   [k: string]: string[]
 }
 function isEmpty(value:any) {
-  if(value===undefined || value===null|| value==='') {
-    return true
-  }
-  return false
+  return value === undefined || value === null || value === '';
+
+}
+export function noError(errors:any) {
+  return Object.keys(errors).length === 0
 }
 const Validator = (formValue: FormValue, rules: FormRules): FormErrors => {
   let errors:any = {}
