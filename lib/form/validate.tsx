@@ -7,6 +7,7 @@ interface FormRule {
   required?: boolean
   minLength?: number
   maxLength?: number
+  pattern?:RegExp
 }
 
 interface FormErrors {
@@ -29,7 +30,7 @@ const Validator = (formValue: FormValue, rules: FormRules): FormErrors => {
   rules.map(rule=>{
     const value = formValue[rule.key]
     if(rule.required) {
-      if(!isEmpty(value)) {
+      if(isEmpty(value)) {
         addError(rule.key,'必填')
       }
     }
@@ -41,6 +42,11 @@ const Validator = (formValue: FormValue, rules: FormRules): FormErrors => {
     if(rule.maxLength) {
       if(!isEmpty(value) && value.length> rule.maxLength) {
         addError(rule.key,'太长')
+      }
+    }
+    if(rule.pattern) {
+      if(!(rule.pattern.test(value))) {
+        addError(rule.key,'格式不正确')
       }
     }
   })

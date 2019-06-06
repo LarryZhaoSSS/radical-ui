@@ -13,12 +13,15 @@ const FormExample: React.FunctionComponent = () => {
     {name: 'password', label: '密码', input: {type: 'password'}}
 
   ])
+  const [errors, setErrors] = useState({})
   const onSubmit = () => {
     const rules = [
-      {key:'username',required:true},
-      {key:'username',minLength:3,maxLength:8},
+      {key: 'username', required: true},
+      {key: 'username', minLength: 3, maxLength: 8},
+      {key: 'username', pattern: /^[A-Za-z0-9]+$/}
     ]
-    const errors = Validator(formData,rules)
+    const errors = Validator(formData, rules)
+    setErrors(errors)
     console.log(errors)
   }
   return (
@@ -28,8 +31,9 @@ const FormExample: React.FunctionComponent = () => {
         <button type="submit">提交</button>
       </>
     }
-    onChange={newValue=>setFormData(newValue)}
-    onSubmit={onSubmit}
+          errors={errors}
+          onChange={newValue => setFormData(newValue)}
+          onSubmit={onSubmit}
     />
   )
 }
