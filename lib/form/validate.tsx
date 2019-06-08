@@ -21,13 +21,13 @@ export function noError(errors:any) {
   return Object.keys(errors).length === 0
 }
 const Validator = (formValue: FormValue, rules: FormRules): FormErrors => {
-  let errors:any = {}
+  let errors:any = {};
   const addError=(key:string,message:string)=>{
     if(errors[key]  === undefined) {
       errors[key] = []
     }
     errors[key].push(message)
-  }
+  };
   rules.map(rule=>{
     const value = formValue[rule.key]
     if(rule.required) {
@@ -50,7 +50,7 @@ const Validator = (formValue: FormValue, rules: FormRules): FormErrors => {
         addError(rule.key,'格式不正确')
       }
     }
-  })
+  });
   return errors
-}
+};
 export default Validator

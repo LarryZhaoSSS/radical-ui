@@ -1,5 +1,6 @@
-import * as React from "react";
-import {ReactFragment} from "react";
+import * as React from 'react';
+import {ReactFragment} from 'react';
+import Input from '../input/input';
 
 export interface FormValue {
   [k: string]: any
@@ -11,26 +12,26 @@ interface Props {
   buttons: ReactFragment
   onSubmit: React.FormEventHandler<HTMLFormElement>
   onChange: (value: FormValue) => void
-  errors:{[k:string]:string[]}
+  errors: { [k: string]: string[] }
 }
 
 const Form: React.FunctionComponent<Props> = (props) => {
-  const formData = props.value
+  const formData = props.value;
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    props.onSubmit(e)
-  }
+    e.preventDefault();
+    props.onSubmit(e);
+  };
   const onInputChange = (name: string, value: string) => {
-    console.log(name, value)
-    const newFormValue = {...formData,[name]:value}
-    props.onChange(newFormValue)
-  }
+    console.log(name, value);
+    const newFormValue = {...formData, [name]: value};
+    props.onChange(newFormValue);
+  };
   return (
     <form onSubmit={onSubmit}>
       {props.fields.map(f =>
         <div key={f.name}>
           {f.label}
-          <input type={f.input.type} value={formData[f.name]}
+          <Input type={f.input.type} value={formData[f.name]}
                  onChange={(e) => onInputChange(f.name, e.target.value)}
           />
           <div>{props.errors[f.name]}</div>
@@ -39,6 +40,6 @@ const Form: React.FunctionComponent<Props> = (props) => {
         {props.buttons}
       </div>
     </form>
-  )
-}
-export default Form
+  );
+};
+export default Form;
