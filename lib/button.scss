@@ -1,0 +1,29 @@
+@import './helper';
+.r-parts-button {
+  padding: 4px 16px;
+  line-height:22px;
+  &:focus {
+    outline:none;
+  }
+  &-normal {
+    color: #333;
+    border: 1px solid lighten(#333,50);
+    background: white;
+
+    transition: all 250ms;
+    &:hover,&:focus{
+      border-color: $main-color;
+      color: $main-color;
+
+    }
+
+  }
+  &-important{
+    color: white;
+    border: 1px solid $main-color;
+    background: $main-color;
+    &:hover,&:focus{
+      background: lighten($main-color,10%);
+    }
+  }
+}

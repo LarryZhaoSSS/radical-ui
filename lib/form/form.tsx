@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {ReactFragment} from 'react';
 import Input from '../input/input';
+import classes from '../helpers/classnames';
+import './form.scss';
 
 export interface FormValue {
   [k: string]: any
@@ -28,17 +30,29 @@ const Form: React.FunctionComponent<Props> = (props) => {
   };
   return (
     <form onSubmit={onSubmit}>
-      {props.fields.map(f =>
-        <div key={f.name}>
-          {f.label}
-          <Input type={f.input.type} value={formData[f.name]}
-                 onChange={(e) => onInputChange(f.name, e.target.value)}
-          />
-          <div>{props.errors[f.name]}</div>
-        </div>)}
-      <div>
-        {props.buttons}
-      </div>
+      <table>
+        {props.fields.map(f =>
+          <tr className={classes('r-parts-form-tr')} key={f.name}>
+            <td className='r-parts-form-td'>
+                   <span className="r-parts-form-label">
+                      {f.label}
+                    </span>
+            </td>
+            <td className='r-parts-form-td'>
+              <Input className='r-parts-form-input' type={f.input.type} value={formData[f.name]}
+                     onChange={(e) => onInputChange(f.name, e.target.value)}
+              />
+              <div>{props.errors[f.name]}</div>
+            </td>
+          </tr>
+        )}
+        <tr className="r-parts-form-tr">
+          <td className="r-parts-form-td" />
+          <td className="r-parts-form-td">
+            {props.buttons}
+          </td>
+        </tr>
+      </table>
     </form>
   );
 };
