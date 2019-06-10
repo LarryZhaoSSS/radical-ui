@@ -15,9 +15,10 @@ const FormExample: React.FunctionComponent = () => {
 
   ]);
   const [errors, setErrors] = useState({});
-  const onSubmit = () => {
+  const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     const rules = [
       {key: 'username', required: true},
+      {key: 'password', required: true},
       {key: 'username', minLength: 3, maxLength: 8},
       {key: 'username', pattern: /^[A-Za-z0-9]+$/}
     ];
@@ -32,7 +33,7 @@ const FormExample: React.FunctionComponent = () => {
     <Form value={formData} fields={fields} buttons={
       <>
         <Button>取消</Button>
-        <Button level={'important'} type="submit">提交</Button>
+        <Button level={'important'} type="submit" >提交</Button>
       </>
     }
           errors={errors}
