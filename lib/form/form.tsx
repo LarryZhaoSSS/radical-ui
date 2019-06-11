@@ -26,7 +26,6 @@ const Form: React.FunctionComponent<Props> = (props) => {
   };
 
   const onInputChange = (name: string, value: string) => {
-    console.log(name, value);
     const newFormValue = {...formData, [name]: value};
     props.onChange(newFormValue);
   };
