@@ -12,10 +12,12 @@ const userNames = [
 ];
 const checkUserName = (username: string, succeed: () => void, failed: () => void) => {
   setTimeout(() => {
-    if (userNames.indexOf(username) >= 0) {
-      failed();
-    } else {
+    if (userNames.indexOf(username) < 0) {
+      console.log('fail')
       succeed();
+    } else {
+      console.log('success')
+      failed();
     }
   }, 2000);
 
@@ -53,11 +55,13 @@ const FormExample: React.FunctionComponent = () => {
     ];
     Validator(formData, rules, (errors) => {
       console.log('dou callback');
+
+      // console.log(errors);
+      setErrors(errors);
+      console.log(errors)
       if (noError(errors)) {
         return;
       }
-      console.log(errors);
-      setErrors(errors);
     });
 
   };
