@@ -64,9 +64,9 @@ const Validator = (formValue: FormValue, rules: FormRules, callback: (errors: an
     errors[key].map(promise => [key, promise])
   );
   const y = flat(x);
-  const z = y.map(([key, promiseOrSstring]) =>
-    (promiseOrSstring instanceof Promise ?
-      promiseOrSstring : Promise.reject(promiseOrSstring)).then(() => {
+  const z = y.map(([key, promiseOrString]) =>
+    (promiseOrString instanceof Promise ?
+      promiseOrString : Promise.reject(promiseOrString)).then(() => {
       return [key, undefined];
     }, (reason: string) => {
       return [key, reason];
