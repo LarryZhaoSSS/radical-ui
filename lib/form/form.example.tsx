@@ -13,10 +13,10 @@ const userNames = [
 const checkUserName = (username: string, succeed: () => void, failed: () => void) => {
   setTimeout(() => {
     if (userNames.indexOf(username) < 0) {
-      console.log('fail')
+      console.log('fail');
       succeed();
     } else {
-      console.log('success')
+      console.log('success');
       failed();
     }
   }, 2000);
@@ -34,6 +34,12 @@ const FormExample: React.FunctionComponent = () => {
 
   ]);
   const [errors, setErrors] = useState({});
+  const validator = (username: string)=> {
+    console.log('use validate');
+    return new Promise<string>((resolve, reject) => {
+      checkUserName(username, resolve, ()=>reject('unique'));
+    });
+  }
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const rules = [
       {key: 'username', required: true},
@@ -42,23 +48,21 @@ const FormExample: React.FunctionComponent = () => {
       {key: 'username', pattern: /^[A-Za-z0-9]+$/},
       {
         key: 'username',
-        validator: {
-          name: 'unique',
-          validate(username: string) {
-            console.log('use validate');
-            return new Promise<void>((resolve, reject) => {
-              checkUserName(username, resolve, reject);
-            });
-          }
-        }
-      }
+        validator
+      },
+      {
+        key: 'username',
+        validator
+
+      },
+
     ];
     Validator(formData, rules, (errors) => {
       console.log('dou callback');
 
       // console.log(errors);
       setErrors(errors);
-      console.log(errors)
+      console.log(errors);
       if (noError(errors)) {
         return;
       }
