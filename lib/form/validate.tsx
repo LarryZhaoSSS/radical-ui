@@ -61,7 +61,7 @@ const Validator = (formValue: FormValue, rules: FormRules, callback: (errors: an
     }
   });
   const x = Object.keys(errors).map(key =>
-    errors[key].map(promise => [key, promise])
+    errors[key].map((promise: any) => [key, promise])
   );
   const y = flat(x);
   const z = y.map(([key, promiseOrString]) =>
@@ -74,7 +74,9 @@ const Validator = (formValue: FormValue, rules: FormRules, callback: (errors: an
   console.log('zzzz');
   console.log(z);
   Promise.all(z).then(results => {
+    // @ts-ignore
     console.log(zip(results.filter(item => item[1])));
+    // @ts-ignore
     callback(zip(results.filter(item => item[1])))
   });
 
@@ -97,7 +99,9 @@ function flat(array: Array<any>) {
 function zip(kvList: Array<[string, string]>) {
   const result = {};
   kvList.map(([key, value]) => {
+    // @ts-ignore
     result[key] = result[key] || [];
+    // @ts-ignore
     result[key].push(value);
   });
   return result;
