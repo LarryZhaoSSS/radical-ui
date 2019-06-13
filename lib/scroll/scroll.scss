@@ -1,0 +1,13 @@
+.r-parts-scroll {
+  position:relative;
+  overflow:hidden;
+  &-inner {
+    overflow:auto;
+    //border: 3px solid blue;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:-15px;
+  }
+}
