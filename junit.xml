@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="8" failures="0" time="5.655">
-  <testsuite name="button" errors="0" failures="0" skipped="0" timestamp="2019-05-04T11:21:44" time="3.41" tests="1">
-    <testcase classname="button 是个 div" name="button 是个 div" time="0.016">
-    </testcase>
-  </testsuite>
-  <testsuite name="classes" errors="0" failures="0" skipped="0" timestamp="2019-05-04T11:21:47" time="0.347" tests="4">
-    <testcase classname="classes 接受1个className" name="classes 接受1个className" time="0.003">
+<testsuites name="jest tests" tests="7" failures="0" time="7.861">
+  <testsuite name="classes" errors="0" failures="0" skipped="0" timestamp="2019-06-17T23:24:13" time="3.406" tests="5">
+    <testcase classname="classes 接受1个className" name="classes 接受1个className" time="0.004">
     </testcase>
     <testcase classname="classes 接受2个className" name="classes 接受2个className" time="0">
     </testcase>
-    <testcase classname="classes 接受1个undefined" name="classes 接受1个undefined" time="0.001">
+    <testcase classname="classes 接受1个undefined" name="classes 接受1个undefined" time="0">
     </testcase>
-    <testcase classname="classes 没有任何一个参数" name="classes 没有任何一个参数" time="0">
+    <testcase classname="classes 没有任何一个参数" name="classes 没有任何一个参数" time="0.001">
     </testcase>
-  </testsuite>
-  <testsuite name="我的第一个测试用例" errors="0" failures="0" skipped="0" timestamp="2019-05-04T11:21:48" time="0.274" tests="1">
-    <testcase classname="我的第一个测试用例 add(1,2) 等于3" name="我的第一个测试用例 add(1,2) 等于3" time="0.002">
+    <testcase classname="scopeClassMaker 接受字符串和对象" name="scopeClassMaker 接受字符串和对象" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="icon" errors="0" failures="0" skipped="0" timestamp="2019-05-04T11:21:48" time="0.471" tests="2">
-    <testcase classname="icon render successfully" name="icon render successfully" time="0.004">
+  <testsuite name="icon" errors="0" failures="0" skipped="0" timestamp="2019-06-17T23:24:16" time="0.889" tests="2">
+    <testcase classname="icon render successfully" name="icon render successfully" time="0.016">
     </testcase>
-    <testcase classname="icon onClick" name="icon onClick" time="0.04">
+    <testcase classname="icon onClick" name="icon onClick" time="0.061">
     </testcase>
   </testsuite>
 </testsuites>
