@@ -11,7 +11,6 @@
     right:-15px;
   }
   &-track {
-    border: 1px solid red;
     width:10px;
     position:absolute;
     right:0;
@@ -20,11 +19,11 @@
   }
   &-bar {
     height:30px;
-    background:#000;
-    border: 1px solid black;
+    background:rgba(128,128,128,.8);
     position: absolute;
     top:0;
-    left:0;
-    width:100%;
+    left:2px;
+    width:6px;
+    border-radius: 3px;
   }
 }
