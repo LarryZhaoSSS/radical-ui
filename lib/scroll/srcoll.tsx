@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {HTMLAttributes, useEffect, useRef, useState} from 'react';
 import './scroll.scss';
-import {UIEventHandler} from 'react';
+import {UIEventHandler, MouseEventHandler} from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
 
@@ -9,30 +9,75 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const Scroll: React.FunctionComponent<Props> = (props) => {
   const {children, ...rest} = props;
-  const [barHeight,setBarHeight] = useState(0)
-  const [barTop, setBarTop] = useState(0)
+  const [barHeight, setBarHeight] = useState(0);
+  const [barTop, _setBarTop] = useState(0);
   const onScroll: UIEventHandler = (e) => {
     console.log(e.currentTarget.scrollTop);
-    const { current } = containerRef
+    const {current} = containerRef;
     const scrollHeight = current!.scrollHeight;
     const viewHeight = current!.getBoundingClientRect().height;
-    const scrollTop = current!.scrollTop
-    setBarTop(scrollTop * viewHeight / scrollHeight)
+    const scrollTop = current!.scrollTop;
+    _setBarTop(scrollTop * viewHeight / scrollHeight);
   };
-  const containerRef = useRef<HTMLDivElement>(null)
-  useEffect(()=>{
+  const setBarTop = (number: number) => {
+    if (number < 0) {
+      return;
+    }
+    const {current} = containerRef;
+    const scrollHeight = current!.scrollHeight;
+    const viewHeight = current!.getBoundingClientRect().height;
+    const maxBarTop = (scrollHeight - viewHeight) * viewHeight / scrollHeight;
+    if (number > maxBarTop) {
+      return;
+    }
+    _setBarTop(number);
+
+  };
+  const containerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
     const scrollHeight = containerRef.current!.scrollHeight;
     const viewHeight = containerRef.current!.getBoundingClientRect().height; //可看见范围高度
-    setBarHeight(viewHeight * viewHeight / scrollHeight)
-  },[])
+    setBarHeight(viewHeight * viewHeight / scrollHeight);
+  }, []);
+  const firstYRef = useRef(0);
+  const draggingRef = useRef(false);
+  const firstBarTopRef = useRef(0);
+  const onMouseDownBar: MouseEventHandler = (e) => {
+    draggingRef.current = true;
+    firstYRef.current = e.clientY;
+    firstBarTopRef.current = barTop;
+  };
+  const onMouseMoveBar = (e: MouseEvent) => {
+    if (draggingRef.current) {
+      console.log('drag');
+      console.log(e.clientY - firstYRef.current);
+      const delta = e.clientY - firstYRef.current;
+      setBarTop(firstBarTopRef.current + delta);
+    }
+  };
+  const onMouseUpBar = () => {
+    draggingRef.current = false;
+  };
+  useEffect(() => {
+    document.addEventListener('mouseup', onMouseUpBar);
+    document.addEventListener('mousemove', onMouseMoveBar);
+    return ()=>{
+      document.removeEventListener('mouseup', onMouseUpBar);
+      document.removeEventListener('mousemove', onMouseMoveBar);
+    }
+  }, []);
   return (
-    <div className='r-parts-scroll' {...rest}>
+    <div className='r-parts-scroll' {...rest} >
       <div className="r-parts-scroll-inner"
            ref={containerRef}
            onScroll={onScroll}
       > {children}</div>
       <div className="r-parts-scroll-track">
-        <div className="r-parts-scroll-bar" style={{height:barHeight, transform:`translateY(${barTop}px)`}}/>
+        <div className="r-parts-scroll-bar"
+             style={{height: barHeight, transform: `translateY(${barTop}px)`}}
+             onMouseDown={onMouseDownBar}
+
+        />
       </div>
     </div>
   );
