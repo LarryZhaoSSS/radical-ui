@@ -9,6 +9,9 @@
     bottom:0;
     left:0;
     right:-15px;
+    &::-webkit-scrollbar{
+      display: none;
+    }
   }
   &-track {
     width:10px;
