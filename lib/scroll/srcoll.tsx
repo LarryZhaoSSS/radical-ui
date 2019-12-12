@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {HTMLAttributes, useEffect, useRef, useState} from 'react';
 import './scroll.scss';
-import {UIEventHandler, MouseEventHandler} from 'react';
+import {UIEventHandler, MouseEventHandler, TouchEventHandler} from 'react';
+import scrollbarWidth from './scrollbar-width';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
 
@@ -13,7 +14,7 @@ const Scroll: React.FunctionComponent<Props> = (props) => {
   const [barHeight, setBarHeight] = useState(0);
   const [barTop, _setBarTop] = useState(0);
   const [barVisible, setBarVisible] = useState(false);
-  const timerIdRef = useRef<number | null>(null)
+  const timerIdRef = useRef<number | null>(null);
   const onScroll: UIEventHandler = (e) => {
     setBarVisible(true);
     const {current} = containerRef;
@@ -21,12 +22,12 @@ const Scroll: React.FunctionComponent<Props> = (props) => {
     const viewHeight = current!.getBoundingClientRect().height;
     const scrollTop = current!.scrollTop;
     _setBarTop(scrollTop * viewHeight / scrollHeight);
-    if(timerIdRef.current !== null) {
-      window.clearTimeout(timerIdRef.current!)
+    if (timerIdRef.current !== null) {
+      window.clearTimeout(timerIdRef.current!);
     }
-    timerIdRef.current = window.setTimeout(()=>{
-      setBarVisible(false)
-    },500)
+    timerIdRef.current = window.setTimeout(() => {
+      setBarVisible(false);
+    }, 500);
   };
   const setBarTop = (number: number) => {
     if (number < 0) {
@@ -86,11 +87,62 @@ const Scroll: React.FunctionComponent<Props> = (props) => {
 
     };
   }, []);
+  const [translateY, _setTranslateY] = useState(0);
+  const setTranslateY = (y: number) => {
+    if (y < 0) {
+      y = 0;
+    }
+    _setTranslateY(y);
+  };
+  const lastYRef = useRef(0);
+  const onTouchStart: TouchEventHandler = (e) => {
+    const scrollTop = containerRef.current!.scrollTop;
+    if (scrollTop !== 0) {
+      return;
+    }
+    pulling.current = true;
+    lastYRef.current = e.touches[0].clientY;
+    moveCount.current = 0;
+  };
+  const moveCount = useRef(0);
+  const pulling = useRef(false);
+  const onTouchMove: TouchEventHandler = (e) => {
+    const deltaY = e.touches[0].clientY - lastYRef.current;
+    moveCount.current += 1;
+    console.log('touch move' + deltaY);
+
+    if (moveCount.current === 1 && deltaY < 0) {
+      pulling.current = false;
+      return;
+    }
+    if (!pulling.current) {
+      return;
+    }
+    if (deltaY > 0) {
+      console.log('up up up up');
+      setTranslateY(translateY + deltaY);
+    } else {
+      console.log('down down');
+      setTranslateY(translateY + deltaY);
+    }
+    setTranslateY(translateY + deltaY);
+    lastYRef.current = e.touches[0].clientY;
+  };
+  const onTouchEnd: TouchEventHandler = e => {
+    setTranslateY(0);
+  };
   return (
     <div className='r-parts-scroll' {...rest} >
       <div className="r-parts-scroll-inner"
+           style={{
+             right: scrollbarWidth(),
+             transform: `translateY(${translateY}px)`
+           }}
            ref={containerRef}
            onScroll={onScroll}
+           onTouchMove={onTouchMove}
+           onTouchStart={onTouchStart}
+           onTouchEnd={onTouchEnd}
       > {children}</div>
       {
         barVisible && (<div className="r-parts-scroll-track">
@@ -101,7 +153,15 @@ const Scroll: React.FunctionComponent<Props> = (props) => {
           />
         </div>)
       }
-
+      <div className="r-parts-scroll-pulling"
+           style={{height: translateY}}
+      >
+        {
+          translateY === 150 ?
+            <span className="r-parts-pulling-text">'释放更新'</span> :
+            <span className="r-parts-pulling-icon">'V'</span>
+        }
+      </div>
     </div>
   );
 };

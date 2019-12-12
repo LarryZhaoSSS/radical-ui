@@ -1,6 +1,7 @@
 .r-parts-scroll {
   position:relative;
   overflow:hidden;
+
   &-inner {
     overflow:auto;
     //border: 3px solid blue;
@@ -8,7 +9,8 @@
     top:0;
     bottom:0;
     left:0;
-    right:-15px;
+    //right:-15px;
+    right:0;
     &::-webkit-scrollbar{
       display: none;
     }
@@ -28,5 +30,19 @@
     left:2px;
     width:6px;
     border-radius: 3px;
+  }
+  &-pulling{
+    overflow: hidden;
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:40px;
+    &-icon {
+      font-size:30px;
+    }
+    &-text{
+      font-size:12px;
+    }
   }
 }

@@ -1,22 +1,17 @@
-function scrollbarWidth() {
+export default function scrollbarWidth() {
 
+  const div = document.createElement('div');
 
-  const body = document.body;
-  const box = document.createElement('div');
-  const boxStyle = box.style;
+  div.style.position = 'absolute';
+  div.style.top = div.style.left = '-9999px'; // 把 div 放到屏幕之外，防止影响用户
+  div.style.width = div.style.height = '100px';
+  div.style.overflow = 'scroll';
 
+  document.body.appendChild(div);
 
-  boxStyle.position = 'absolute';
-  boxStyle.top = boxStyle.left = '-9999px';
-  boxStyle.width = boxStyle.height = '100px';
-  boxStyle.overflow = 'scroll';
+  const width = div.offsetWidth - div.clientWidth;
 
-  body.appendChild(box);
-
-  const width = box.offsetWidth - box.clientWidth;
-
-  body.removeChild(box);
+  document.body.removeChild(div);
 
   return width;
 }
-export default scrollbarWidth()
