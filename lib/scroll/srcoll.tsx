@@ -5,7 +5,7 @@ import {UIEventHandler, MouseEventHandler, TouchEventHandler} from 'react';
 import scrollbarWidth from './scrollbar-width';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-
+  onPull?: () => void
 }
 
 // const isTouchDevice: boolean = 'ontouchstart' in document.documentElement;
@@ -129,7 +129,11 @@ const Scroll: React.FunctionComponent<Props> = (props) => {
     lastYRef.current = e.touches[0].clientY;
   };
   const onTouchEnd: TouchEventHandler = e => {
-    setTranslateY(0);
+    if (pulling.current) {
+      setTranslateY(0);
+      props.onPull && props.onPull();
+      pulling.current = false;
+    }
   };
   return (
     <div className='r-parts-scroll' {...rest} >
