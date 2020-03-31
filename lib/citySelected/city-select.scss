@@ -6,6 +6,7 @@
     width: 100%;
     height: 100%;
     background: #fff;
+    overflow: auto;
     > header {
       background: rgb(255, 202, 0);
       display: flex;
@@ -18,6 +19,43 @@
         position: absolute;
         left: 0;
       }
+    }
+  }
+  &-index {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid rgb(221, 216, 206);
+    > li {
+      width: 20%;
+      text-align: center;
+      padding: 4px 0;
+    }
+  }
+  &-citySection {
+    border-left: 1px solid rgb(237, 235, 229);
+    overflow: hidden;
+    > h4 {
+      float: left;
+      width: 25%;
+      border: 1px solid rgb(237, 239, 229);
+      border-left: none;
+      border-bottom: none;
+      line-height: 80px;
+      text-align: center;
+      font-size: 40px;
+    }
+    > .r-parts-citySelect-cityName {
+      float: left;
+      width: 25%;
+      font-size: 14px;
+      line-height: 40px;
+      text-align: center;
+      border: 1px solid rgb(237, 239, 229);
+      margin-bottom: -1px;
+      border-left: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }
