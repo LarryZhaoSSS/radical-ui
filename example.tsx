@@ -15,6 +15,7 @@ import IconDemo from './lib/icon/icon.demo';
 import FormExample from './lib/form/form.example';
 import ScrollExample from './lib/scroll/scroll.example';
 import { CitySelectExample } from './lib/citySelected/citySelect.example';
+import {TreeExample} from './lib/tree/tree.example'
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
@@ -44,6 +45,9 @@ ReactDOM.render(
             <li>
               <Link to='/citySelect'>city Select</Link>
             </li>
+            <li>
+              <Link to='/tree'>tree</Link>
+            </li>
           </ul>
         </Aside>
         <Content className='site-main'>
@@ -54,6 +58,7 @@ ReactDOM.render(
           <Route path='/form' component={FormExample} />
           <Route path='/scroll' component={ScrollExample} />
           <Route path='/citySelect' component={CitySelectExample} />
+          <Route path='/tree' component={TreeExample} />
         </Content>
       </Layout>
       <Footer className='site-footer'>&copy; larry-sss</Footer>
