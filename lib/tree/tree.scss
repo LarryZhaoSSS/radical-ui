@@ -1,0 +1,39 @@
+.r-parts-tree {
+  &-item {
+    outline: 1px solid;
+    line-height: 1.5;
+    .r-parts-tree-text {
+      padding-left: 1em;
+    }
+  }
+  &-text {
+    &:hover {
+      background: lightyellow;
+    }
+  }
+  &-level-1 {
+    .r-parts-tree-text {
+      padding-left: 0;
+    }
+  }
+  &-level-2 {
+    .r-parts-tree-text {
+      padding-left: 1em;
+    }
+  }
+  &-level-3 {
+    .r-parts-tree-text {
+      padding-left: 2em;
+    }
+  }
+  &-level-4 {
+    .r-parts-tree-text {
+      padding-left: 3em;
+    }
+  }
+  &-level-5 {
+    .r-parts-tree-text {
+      padding-left: 4em;
+    }
+  }
+}
