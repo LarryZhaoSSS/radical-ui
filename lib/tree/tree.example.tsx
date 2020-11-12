@@ -41,12 +41,16 @@ const TreeExample: React.FC = (props) => {
     },
   ]);
   const [selected, setSelected] = useState<string[]>(['1.1', '1.2']);
+  const [selectedValue, setSelectedValue] = useState('1');
   const onChange = (item: SourceDataItem, bool: boolean) => {
     if (bool) {
       setSelected([...selected, item.value]);
     } else {
       setSelected(selected.filter((v) => v !== item.value));
     }
+  };
+  const onChangeOne = (item: SourceDataItem, bool: boolean) => {
+    setSelectedValue(item.value);
   };
   return (
     <div>
@@ -59,6 +63,14 @@ const TreeExample: React.FC = (props) => {
           selected={selected}
           onChange={onChange}
           multiple
+        />
+      </div>
+      <h2>single selected</h2>
+      <div style={{ width: 200, marginTop: 20 }}>
+        <Tree
+          sourceData={array}
+          selected={selectedValue}
+          onChange={onChangeOne}
         />
       </div>
     </div>
