@@ -6,16 +6,18 @@ export interface SourceDataItem {
   value: string;
   children?: SourceDataItem[];
 }
-interface Props {
+type Props = {
   sourceData: SourceDataItem[];
-  selectedValues: string[];
+
   onChange: (item: SourceDataItem, bool: boolean) => void;
-}
+} & (A | B);
+type A = { selected: string[]; multiple: true };
+type B = { selected: string; multiple: false };
 const scopedClass = scopedClassMaker('r-parts-tree');
 const sc = scopedClass;
 const renderItem = (
   item: SourceDataItem,
-  selectedValues: string[],
+  selected: string[],
   onChange: (item: SourceDataItem, bool: boolean) => void,
   level = 1
 ) => {
@@ -29,26 +31,30 @@ const renderItem = (
         <input
           type='checkbox'
           onChange={(e) => onChange(item, e.target.checked)}
-          checked={selectedValues.indexOf(item.value) >= 0}
+          checked={selected.indexOf(item.value) >= 0}
         />
         {item.text}
       </div>
       {item.children?.map((sub) => {
-        return renderItem(sub, selectedValues, onChange, level + 1);
+        return renderItem(sub, selected, onChange, level + 1);
       })}
     </div>
   );
 };
 const Tree: React.FC<Props> = (props) => {
-  return (
-    <div>
+  if (props.multiple === true) {
+    return (
       <div>
-        {props.sourceData?.map((item) => {
-          return renderItem(item, props.selectedValues, props.onChange);
-        })}
+        <div>
+          {props.sourceData?.map((item) => {
+            return renderItem(item, props.selected, props.onChange);
+          })}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <div>to do</div>;
+  }
 };
 
 export { Tree };

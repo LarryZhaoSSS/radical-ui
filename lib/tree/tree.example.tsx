@@ -40,27 +40,25 @@ const TreeExample: React.FC = (props) => {
       ],
     },
   ]);
-  const [selectedValues, setSelectedValues] = useState<string[]>([
-    '1.1',
-    '1.2',
-  ]);
+  const [selected, setSelected] = useState<string[]>(['1.1', '1.2']);
   const onChange = (item: SourceDataItem, bool: boolean) => {
     if (bool) {
-      setSelectedValues([...selectedValues, item.value]);
+      setSelected([...selected, item.value]);
     } else {
-      setSelectedValues(selectedValues.filter((v) => v !== item.value));
+      setSelected(selected.filter((v) => v !== item.value));
     }
   };
   return (
     <div>
       Tree
       <h1>展示tree</h1>
-      {selectedValues.join(',')}
+      {selected.join(',')}
       <div style={{ width: 200 }}>
         <Tree
           sourceData={array}
-          selectedValues={selectedValues}
+          selected={selected}
           onChange={onChange}
+          multiple
         />
       </div>
     </div>
