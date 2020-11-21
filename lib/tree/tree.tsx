@@ -40,6 +40,8 @@ const Tree: React.FC<Props> = (props) => {
         } else {
           props.onChange(props.selected.filter((v: any) => v !== item.value));
         }
+      } else {
+        props.onChange(item.value);
       }
     };
     return (
