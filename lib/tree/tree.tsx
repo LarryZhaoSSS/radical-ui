@@ -1,6 +1,7 @@
 import { scopedClassMaker } from '../helpers/classnames';
 import * as React from 'react';
 import './tree.scss';
+import { ChangeEventHandler } from 'react';
 export interface SourceDataItem {
   text: string;
   value: string;
@@ -8,11 +9,17 @@ export interface SourceDataItem {
 }
 type Props = {
   sourceData: SourceDataItem[];
-
-  onChange: (item: SourceDataItem, bool: boolean) => void;
 } & (A | B);
-type A = { selected: string[]; multiple: true };
-type B = { selected: string; multiple?: false };
+type A = {
+  selected: string[];
+  multiple: true;
+  onChange: (newSelected: string[]) => void;
+};
+type B = {
+  selected: string;
+  multiple?: false;
+  onChange: (newSelected: string) => void;
+};
 const scopedClass = scopedClassMaker('r-parts-tree');
 const sc = scopedClass;
 
@@ -25,14 +32,20 @@ const Tree: React.FC<Props> = (props) => {
     const checked = props.multiple
       ? props.selected.indexOf(item.value) >= 0
       : props.selected === item.value;
+    const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+      const checked = e.target.checked;
+      if (props.multiple) {
+        if (checked) {
+          props.onChange([...props.selected, item.value]);
+        } else {
+          props.onChange(props.selected.filter((v: any) => v !== item.value));
+        }
+      }
+    };
     return (
       <div key={item.value} className={sc(classes)}>
         <div className={sc('text')}>
-          <input
-            type='checkbox'
-            onChange={(e) => props.onChange(item, e.target.checked)}
-            checked={checked}
-          />
+          <input type='checkbox' onChange={onChange} checked={checked} />
           {item.text}
         </div>
         {item.children?.map((sub) => {
