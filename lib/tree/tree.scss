@@ -7,9 +7,14 @@
     }
   }
   &-text {
+    display: block;
     &:hover {
       background: lightyellow;
     }
+  }
+  &-collapsed {
+    height: 0;
+    overflow: hidden;
   }
   &-level-1 {
     .r-parts-tree-text {

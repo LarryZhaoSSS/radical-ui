@@ -1,7 +1,7 @@
 import { scopedClassMaker } from '../helpers/classnames';
 import * as React from 'react';
 import './tree.scss';
-import { ChangeEventHandler } from 'react';
+import { ChangeEventHandler, useState } from 'react';
 export interface SourceDataItem {
   text: string;
   value: string;
@@ -44,15 +44,34 @@ const Tree: React.FC<Props> = (props) => {
         props.onChange(item.value);
       }
     };
+    const expand = () => {
+      setExpanded(true);
+    };
+    const collapse = () => {
+      setExpanded(false);
+    };
+    const [expanded, setExpanded] = useState<boolean>(true);
+    console.log(expanded);
     return (
       <div key={item.value} className={sc(classes)}>
         <div className={sc('text')}>
           <input type='checkbox' onChange={onChange} checked={checked} />
           {item.text}
+          {item.children && (
+            <span onSelect={(e) => e.preventDefault()}>
+              {expanded ? (
+                <span onClick={collapse}>-</span>
+              ) : (
+                <span onClick={expand}>+</span>
+              )}
+            </span>
+          )}
         </div>
-        {item.children?.map((sub) => {
-          return renderItem(sub, level + 1);
-        })}
+        <div className={sc({ children: true, collapsed: !expanded })}>
+          {item.children?.map((sub) => {
+            return renderItem(sub, level + 1);
+          })}
+        </div>
       </div>
     );
   };
