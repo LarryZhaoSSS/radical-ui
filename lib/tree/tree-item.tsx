@@ -30,7 +30,11 @@ export const TreeItem: React.FC<Props> = (props) => {
         );
       }
     } else {
-      treeProps.onChange(item.value);
+      if (e.target.checked) {
+        treeProps.onChange(item.value);
+      } else {
+        treeProps.onChange('');
+      }
     }
   };
   const expand = () => {
