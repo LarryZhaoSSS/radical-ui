@@ -1,3 +1,4 @@
+import { useUpdate } from '../hooks/useUpdate';
 import * as React from 'react';
 import { ChangeEventHandler } from 'react';
 import { scopedClassMaker } from '../helpers/classnames';
@@ -44,7 +45,10 @@ export const TreeItem: React.FC<Props> = (props) => {
     setExpanded(false);
   };
   const [expanded, setExpanded] = React.useState<boolean>(true);
-  console.log(expanded);
+
+  useUpdate(expanded, () => {
+    console.log('2 time');
+  });
   return (
     <div key={item.value} className={sc(classes)}>
       <div className={sc('text')}>
