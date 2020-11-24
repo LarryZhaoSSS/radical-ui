@@ -1,6 +1,6 @@
 import { useUpdate } from '../hooks/useUpdate';
 import * as React from 'react';
-import { ChangeEventHandler } from 'react';
+import { ChangeEventHandler, useRef } from 'react';
 import { scopedClassMaker } from '../helpers/classnames';
 
 import { SourceDataItem, TreeProps } from './tree';
@@ -45,9 +45,46 @@ export const TreeItem: React.FC<Props> = (props) => {
     setExpanded(false);
   };
   const [expanded, setExpanded] = React.useState<boolean>(true);
-
+  const divRef = useRef<HTMLDivElement>(null);
   useUpdate(expanded, () => {
     console.log('2 time');
+    if (!divRef.current) {
+      return;
+    }
+    if (expanded) {
+      console.log('打开');
+
+      divRef.current.style.height = 'auto';
+      const { height } = divRef.current.getBoundingClientRect();
+      divRef.current.style.height = '0px';
+      divRef.current.getBoundingClientRect();
+      divRef.current.style.height = height + 'px';
+      const afterExpand = () => {
+        if (!divRef.current) {
+          return;
+        }
+        divRef.current.style.height = '';
+        divRef.current.classList.add('r-parts-tree-children-present');
+        divRef.current.removeEventListener('transitionend', afterExpand);
+      };
+      divRef.current.addEventListener('transitionend', afterExpand);
+    } else {
+      console.log('关闭');
+      const { height } = divRef.current.getBoundingClientRect();
+      console.log(height);
+      divRef.current.style.height = height + 'px';
+      divRef.current.getBoundingClientRect();
+      divRef.current.style.height = '0px';
+      const afterCollapse = () => {
+        if (!divRef.current) {
+          return;
+        }
+        divRef.current.style.height = '';
+        divRef.current.classList.add('r-parts-tree-children-gone');
+        divRef.current.removeEventListener('transitionend', afterCollapse);
+      };
+      divRef.current.addEventListener('transitionend', afterCollapse);
+    }
   });
   return (
     <div key={item.value} className={sc(classes)}>
@@ -64,7 +101,10 @@ export const TreeItem: React.FC<Props> = (props) => {
           </span>
         )}
       </div>
-      <div className={sc({ children: true, collapsed: !expanded })}>
+      <div
+        ref={divRef}
+        className={sc({ children: true, collapsed: !expanded })}
+      >
         {item.children?.map((sub) => {
           // return renderItem(sub, level + 1);
           return (

@@ -1,6 +1,6 @@
 .r-parts-tree {
   &-item {
-    outline: 1px solid;
+    border: 1px solid;
     line-height: 1.5;
     .r-parts-tree-text {
       padding-left: 1em;
@@ -12,9 +12,16 @@
       background: lightyellow;
     }
   }
-  &-collapsed {
-    height: 0;
+  // &-collapsed {
+  //   height: 0;
+  //   overflow: hidden;
+  // }
+  &-children {
     overflow: hidden;
+    transition: height 1s;
+    &-gone {
+      height: 0;
+    }
   }
   &-level-1 {
     .r-parts-tree-text {
