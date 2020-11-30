@@ -20,14 +20,40 @@ export const TreeItem: React.FC<Props> = (props) => {
   const checked = treeProps.multiple
     ? treeProps.selected.indexOf(item.value) >= 0
     : treeProps.selected === item.value;
+  interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> {}
+  function flatten(array?: RecursiveArray<string>): string[] {
+    if (!array) {
+      return [];
+    }
+    return array.reduce<string[]>((result, current) => {
+      if (typeof current === 'string') {
+        return result.concat(current);
+      } else {
+        return result.concat(flatten(current));
+      }
+    }, []);
+  }
+  function collectChildrenValues(item: SourceDataItem): string[] {
+    return flatten(
+      item.children?.map((i) => [i.value, collectChildrenValues(i)])
+    );
+  }
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const checked = e.target.checked;
+    const childrenValues = collectChildrenValues(item);
+    console.log(childrenValues);
     if (treeProps.multiple) {
       if (checked) {
-        treeProps.onChange([...treeProps.selected, item.value]);
+        treeProps.onChange([
+          ...treeProps.selected,
+          item.value,
+          ...childrenValues,
+        ]);
       } else {
         treeProps.onChange(
-          treeProps.selected.filter((v: any) => v !== item.value)
+          treeProps.selected.filter(
+            (v: any) => v !== item.value && childrenValues.indexOf(v) === -1
+          )
         );
       }
     } else {
