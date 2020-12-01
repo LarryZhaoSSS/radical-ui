@@ -4,12 +4,14 @@ import { ChangeEventHandler, useRef } from 'react';
 import { scopedClassMaker } from '../helpers/classnames';
 
 import { SourceDataItem, TreeProps } from './tree';
+import { useToggle } from '../hooks/useToggle';
 const scopedClass = scopedClassMaker('r-parts-tree');
 const sc = scopedClass;
 interface Props {
   item: SourceDataItem;
   level: number;
   treeProps: TreeProps;
+  onItemChange: (values: string[]) => void;
 }
 export const TreeItem: React.FC<Props> = (props) => {
   const { item, level, treeProps } = props;
@@ -44,13 +46,13 @@ export const TreeItem: React.FC<Props> = (props) => {
     console.log(childrenValues);
     if (treeProps.multiple) {
       if (checked) {
-        treeProps.onChange([
+        props.onItemChange([
           ...treeProps.selected,
           item.value,
           ...childrenValues,
         ]);
       } else {
-        treeProps.onChange(
+        props.onItemChange(
           treeProps.selected.filter(
             (v: any) => v !== item.value && childrenValues.indexOf(v) === -1
           )
@@ -64,13 +66,14 @@ export const TreeItem: React.FC<Props> = (props) => {
       }
     }
   };
-  const expand = () => {
-    setExpanded(true);
-  };
-  const collapse = () => {
-    setExpanded(false);
-  };
-  const [expanded, setExpanded] = React.useState<boolean>(true);
+  // const expand = () => {
+  //   setExpanded(true);
+  // };
+  // const collapse = () => {
+  //   setExpanded(false);
+  // };
+  // const [expanded, setExpanded] = React.useState<boolean>(true);
+  const { open: expand, close: collapse, value: expanded } = useToggle(false);
   const divRef = useRef<HTMLDivElement>(null);
   useUpdate(expanded, () => {
     console.log('2 time');
@@ -115,10 +118,49 @@ export const TreeItem: React.FC<Props> = (props) => {
       divRef.current.addEventListener('transitionend', afterCollapse);
     }
   });
+  function intersect<T>(array1: T[], array2: T[]): T[] {
+    const result: T[] = [];
+    for (let i = 0; i < array1.length; i++) {
+      if (array2.indexOf(array1[i]) >= 1) {
+        result.push(array1[i]);
+      }
+    }
+    return result;
+  }
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const onItemChange = (values: string[]) => {
+    // 子代被全部选中
+    const childrenValues = collectChildrenValues(item);
+    const common = intersect(values, childrenValues);
+    console.log('---values---');
+    console.log(values);
+    console.log(childrenValues);
+    console.log(common);
+    if (common.length > 0) {
+      props.onItemChange(Array.from(new Set(values.concat(item.value))));
+      if (common.length === childrenValues.length) {
+        console.log('全选');
+        inputRef.current!.indeterminate = false;
+      } else {
+        console.log('半悬');
+        inputRef.current!.indeterminate = false;
+      }
+    } else {
+      console.log('全不选');
+      props.onItemChange(values.filter((v) => v !== item.value));
+      inputRef.current!.indeterminate = false;
+    }
+  };
   return (
     <div key={item.value} className={sc(classes)}>
       <div className={sc('text')}>
-        <input type='checkbox' onChange={onChange} checked={checked} />
+        <input
+          ref={inputRef}
+          type='checkbox'
+          onChange={onChange}
+          checked={checked}
+        />
         {item.text}
         {item.children && (
           <span onSelect={(e) => e.preventDefault()}>
@@ -142,6 +184,7 @@ export const TreeItem: React.FC<Props> = (props) => {
               item={sub}
               level={level + 1}
               treeProps={treeProps}
+              onItemChange={onItemChange}
             />
           );
         })}

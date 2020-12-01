@@ -24,6 +24,15 @@ const scopedClass = scopedClassMaker('r-parts-tree');
 const sc = scopedClass;
 console.log(sc);
 const Tree: React.FC<TreeProps> = (props) => {
+  const onItemChange = (values: string[] | string) => {
+    console.log('---最终值---');
+    console.log(values);
+    if (props.multiple) {
+      props.onChange(Array.from(new Set(values)) as string[]);
+    } else {
+      props.onChange(values as string);
+    }
+  };
   return (
     <div>
       <div>
@@ -34,6 +43,7 @@ const Tree: React.FC<TreeProps> = (props) => {
               treeProps={props}
               item={item}
               level={1}
+              onItemChange={onItemChange}
             />
           );
         })}

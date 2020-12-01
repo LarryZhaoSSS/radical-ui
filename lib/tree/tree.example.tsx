@@ -41,8 +41,8 @@ const TreeExample: React.FC = (props) => {
     },
   ]);
   const [selectedValues, setSelectedValues] = useState<string[]>([
-    '1.1',
-    '1.2',
+    // '1.1',
+    // '1.2',
   ]);
   const [selectedValue, setSelectedValue] = useState('1');
   const onChange = (selected: string[]) => {
