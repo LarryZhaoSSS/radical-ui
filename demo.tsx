@@ -1,46 +1,49 @@
-import * as React from "react";
-import Hightlight, {defaultProps} from 'prism-react-renderer'
-import {useState} from "react";
+import * as React from 'react';
+import Hightlight, { defaultProps } from 'prism-react-renderer';
+import { useState } from 'react';
+import Button from './lib/button';
+import dracula from 'prism-react-renderer/themes/github';
 
 interface Props {
-  code: string
+  code: string;
 }
 
-const Demo: React.FunctionComponent<Props> = (props) => {
-  const [codeVisible, setCodeVisible] = useState(false)
+const Demo: React.FunctionComponent<Props> = props => {
+  const [codeVisible, setCodeVisible] = useState(false);
   const code = (
-    <Hightlight {...defaultProps} code={props.code} language="jsx">
-      {({className, style, tokens, getLineProps, getTokenProps}) => (
+    <Hightlight
+      {...defaultProps}
+      code={props.code}
+      theme={dracula}
+      language="jsx"
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>
-            {
-              tokens.map((line, i) => (
-                <div {...getLineProps({line, key: i})}>
-                  {
-                    line.map((token, key) => (
-                      <span {...getTokenProps({token, key})}></span>
-                    ))
-                  }
-                </div>
-              ))
-            }
-          </pre>
-      )
-      }
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })}></span>
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
     </Hightlight>
-  )
+  );
   return (
     <div>
-      <div className='example'>
-        {props.children}
+      <div className="example">{props.children}</div>
+      <div style={{ marginBottom: 15 }}>
+        <Button
+          onClick={() => {
+            setCodeVisible(!codeVisible);
+          }}
+        >
+          查看代码
+        </Button>
       </div>
-      <div>
-        <button onClick={()=>{setCodeVisible(!codeVisible)}}>查看代码</button>
-      </div>
-      {
-        codeVisible &&  code
-      }
-
+      {codeVisible && code}
     </div>
-  )
-}
-export default Demo
+  );
+};
+export default Demo;
