@@ -39,7 +39,7 @@ const Demo: React.FunctionComponent<Props> = props => {
             setCodeVisible(!codeVisible);
           }}
         >
-          {codeVisible ? '收起代码' : '查看代码'}
+          {codeVisible ? 'hide code' : 'show code'}
         </Button>
       </div>
       {codeVisible && code}
