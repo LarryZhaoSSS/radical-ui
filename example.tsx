@@ -11,11 +11,11 @@ import Aside from './lib/layout/aside';
 import Footer from './lib/layout/footer';
 import Content from './lib/layout/content';
 import Layout from './lib/layout/layout';
-import IconDemo from './lib/icon/icon.demo';
 import FormExample from './lib/form/form.example';
 import ScrollExample from './lib/scroll/scroll.example';
 import { CitySelectExample } from './lib/citySelected/citySelect.example';
 import { TreeExample } from './lib/tree/tree.example';
+import IconExample from './lib/icon/icon.example';
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
@@ -51,7 +51,7 @@ ReactDOM.render(
           </ul>
         </Aside>
         <Content className="site-main">
-          <Route path="/icon" component={IconDemo} />
+          <Route path="/icon" component={IconExample} />
           <Route path="/button" component={ButtonExample} />
           <Route path="/dialog" component={DialogExample} />
           <Route path="/layout" component={LayoutExample} />

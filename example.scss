@@ -67,3 +67,14 @@ $border-color: #eee;
   padding: 16px 0;
   border-top: 1px solid $border-color;
 }
+.prism-code {
+  border-left: 10px solid #dee2e6 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  margin: 1em 0;
+  font-size: 14px;
+  background-color: #fff !important;
+  > .token-line {
+    margin-left: 10px;
+  }
+}

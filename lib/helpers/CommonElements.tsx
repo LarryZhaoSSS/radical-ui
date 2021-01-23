@@ -3,7 +3,7 @@ const fontColor = '#495057';
 export const ContentWrapper = styled.div`
   padding: 0 28px 28px 18px;
   background-color: #f8f9fa;
-  height: 100vh;
+  min-height: 100vh;
 `;
 export const MainTitle = styled.h1`
   color: ${fontColor};

@@ -41,7 +41,9 @@ const Dialog: React.FunctionComponent<Props> = props => {
             )
           ) : (
             <>
-              <Button label="text">x cancel</Button>
+              <Button label="text" onClick={onClickClose}>
+                x cancel
+              </Button>
               <Button label="normal">ok</Button>
             </>
           )}

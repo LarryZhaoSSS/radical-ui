@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Demo: React.FunctionComponent<Props> = props => {
-  const [codeVisible, setCodeVisible] = useState(false);
+  const [codeVisible, setCodeVisible] = useState(true);
   const code = (
     <Hightlight
       {...defaultProps}
@@ -33,13 +33,13 @@ const Demo: React.FunctionComponent<Props> = props => {
   return (
     <div>
       <div className="example">{props.children}</div>
-      <div style={{ marginBottom: 15 }}>
+      <div style={{ marginBottom: 15, marginTop: 15 }}>
         <Button
           onClick={() => {
             setCodeVisible(!codeVisible);
           }}
         >
-          查看代码
+          {codeVisible ? '收起代码' : '查看代码'}
         </Button>
       </div>
       {codeVisible && code}
