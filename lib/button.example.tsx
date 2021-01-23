@@ -1,5 +1,7 @@
 import React from 'react';
+import { ButtonLoadingDemo } from './Button.Demo/BottonLoadingDemo';
 import { ButtonBasicDemo } from './Button.Demo/ButtonBasicDemo';
+import { ButtonCodeDemo } from './Button.Demo/ButtonCodeDemo';
 import { ButtonServerityDemo } from './Button.Demo/ButtonServerityDemo';
 import { ContentWrapper } from './helpers/CommonElements';
 import {
@@ -21,7 +23,10 @@ const ButtonExample: React.FunctionComponent = () => {
         <ButtonBasicDemo />
         <SubTitle>Severities</SubTitle>
         <ButtonServerityDemo />
+        <SubTitle>Loading</SubTitle>
+        <ButtonLoadingDemo />
       </ContentCard>
+      <ButtonCodeDemo />
     </ContentWrapper>
   );
 };

@@ -32,7 +32,7 @@ export const AllIconDemo = () => {
   return (
     <Wrapper>
       {iconNames.map((item, index) => {
-        return <IconDesc name={item} />;
+        return <IconDesc name={item} key={index} />;
       })}
     </Wrapper>
   );

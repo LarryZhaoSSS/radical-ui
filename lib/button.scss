@@ -1,9 +1,33 @@
 @import './helper';
 .r-parts-button {
-  padding: 4px 16px;
+  padding: 4px 14px;
   line-height: 22px;
   border-radius: $border-radius;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: bottom;
+  text-align: center;
+  overflow: hidden;
   cursor: pointer;
+  @keyframes loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  > .r-parts-icon {
+    margin-right: 6px;
+  }
+  &.loading {
+    cursor: default !important;
+    pointer-events: none !important;
+    > .r-parts-icon {
+      margin-right: 6px;
+      animation: loading-spin 1s infinite linear;
+    }
+  }
   &:focus {
     outline: none;
   }
