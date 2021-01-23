@@ -1,29 +1,130 @@
 @import './helper';
 .r-parts-button {
   padding: 4px 16px;
-  line-height:22px;
+  line-height: 22px;
+  border-radius: $border-radius;
+  cursor: pointer;
   &:focus {
-    outline:none;
+    outline: none;
+  }
+  &-text {
+    background-color: transparent;
+    border-color: transparent;
+    color: $main-color;
+    &:hover {
+      background: rgba(33, 150, 243, 0.04);
+      border-color: transparent;
+    }
+    &.disabled {
+      cursor: default !important;
+      pointer-events: none;
+    }
   }
   &-normal {
     color: #333;
-    border: 1px solid lighten(#333,50);
+    border: 1px solid lighten(#333, 50);
     background: white;
 
     transition: all 250ms;
-    &:hover,&:focus{
+    &:hover,
+    &:focus {
       border-color: $main-color;
       color: $main-color;
-
     }
-
+    &.disabled {
+      cursor: default !important;
+      pointer-events: none;
+    }
   }
-  &-important{
+  &-important {
     color: white;
     border: 1px solid $main-color;
     background: $main-color;
-    &:hover,&:focus{
-      background: lighten($main-color,10%);
+    &:hover,
+    &:focus {
+      background: lighten($main-color, 10%);
+    }
+    &.disabled {
+      cursor: default !important;
+      pointer-events: none;
+    }
+  }
+  &-Secondary {
+    color: white;
+    border: 1px solid $secondary-color;
+    background: $secondary-color;
+    &:hover,
+    &:focus {
+      background: lighten($secondary-color, 10%);
+    }
+    &.disabled {
+      cursor: default !important;
+      pointer-events: none;
+    }
+  }
+  &-Success {
+    color: white;
+    border: 1px solid $success-color;
+    background: $success-color;
+    &:hover,
+    &:focus {
+      background: lighten($success-color, 10%);
+    }
+    &.disabled {
+      cursor: default !important;
+      pointer-events: none;
+    }
+  }
+  &-info {
+    color: white;
+    border: 1px solid $info-color;
+    background: $info-color;
+    &:hover,
+    &:focus {
+      background: lighten($info-color, 10%);
+    }
+    &.disabled {
+      cursor: default !important;
+      pointer-events: none;
+    }
+  }
+  &-warning {
+    color: white;
+    border: 1px solid $warning-color;
+    background: $warning-color;
+    &:hover,
+    &:focus {
+      background: lighten($warning-color, 10%);
+    }
+    &.disabled {
+      cursor: default !important;
+      pointer-events: none;
+    }
+  }
+  &-help {
+    color: white;
+    border: 1px solid $help-color;
+    background: $help-color;
+    &:hover,
+    &:focus {
+      background: lighten($help-color, 10%);
+    }
+    &.disabled {
+      cursor: default !important;
+      pointer-events: none;
+    }
+  }
+  &-danger {
+    color: white;
+    border: 1px solid $danger-color;
+    background: $danger-color;
+    &:hover,
+    &:focus {
+      background: lighten($danger-color, 10%);
+    }
+    &.disabled {
+      cursor: default !important;
+      pointer-events: none;
     }
   }
 }

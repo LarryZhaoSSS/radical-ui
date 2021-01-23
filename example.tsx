@@ -15,54 +15,54 @@ import IconDemo from './lib/icon/icon.demo';
 import FormExample from './lib/form/form.example';
 import ScrollExample from './lib/scroll/scroll.example';
 import { CitySelectExample } from './lib/citySelected/citySelect.example';
-import {TreeExample} from './lib/tree/tree.example'
+import { TreeExample } from './lib/tree/tree.example';
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
-    <Layout className='site-page'>
+    <Layout className="site-page">
       <Header>
         <div>r-parts ui</div>
       </Header>
       <Layout>
-        <Aside className='site-aside'>
+        <Aside className="site-aside">
           <h2>组建</h2>
           <ul>
             <li>
-              <Link to='/icon'> icon </Link>
+              <Link to="/icon"> icon </Link>
             </li>
             <li>
-              <Link to='/dialog'> Dialog </Link>
+              <Link to="/button">Button</Link>
             </li>
             <li>
-              <Link to='/layout'> Layout </Link>
+              <Link to="/dialog"> Dialog </Link>
             </li>
             <li>
-              <Link to='/form'>Form</Link>
+              <Link to="/layout"> Layout </Link>
             </li>
             <li>
-              <Link to='/scroll'>Scroll</Link>
+              <Link to="/form">Form</Link>
             </li>
             <li>
-              <Link to='/citySelect'>city Select</Link>
+              <Link to="/scroll">Scroll</Link>
             </li>
             <li>
-              <Link to='/tree'>tree</Link>
+              <Link to="/tree">tree</Link>
             </li>
           </ul>
         </Aside>
-        <Content className='site-main'>
-          <Route path='/icon' component={IconDemo} />
-          <Route path='/button' component={ButtonExample} />
-          <Route path='/dialog' component={DialogExample} />
-          <Route path='/layout' component={LayoutExample} />
-          <Route path='/form' component={FormExample} />
-          <Route path='/scroll' component={ScrollExample} />
-          <Route path='/citySelect' component={CitySelectExample} />
-          <Route path='/tree' component={TreeExample} />
+        <Content className="site-main">
+          <Route path="/icon" component={IconDemo} />
+          <Route path="/button" component={ButtonExample} />
+          <Route path="/dialog" component={DialogExample} />
+          <Route path="/layout" component={LayoutExample} />
+          <Route path="/form" component={FormExample} />
+          <Route path="/scroll" component={ScrollExample} />
+          <Route path="/citySelect" component={CitySelectExample} />
+          <Route path="/tree" component={TreeExample} />
         </Content>
       </Layout>
-      <Footer className='site-footer'>&copy; larry-sss</Footer>
+      <Footer className="site-footer">&copy; larry-sss</Footer>
     </Layout>
   </Router>,
-  document.querySelector('#root')
+  document.querySelector('#root'),
 );

@@ -1,20 +1,40 @@
 import * as React from 'react';
-import {ButtonHTMLAttributes} from 'react';
+import { ButtonHTMLAttributes } from 'react';
 import classes from './helpers/classnames';
 import './button.scss';
-
+type LabelType =
+  | 'important'
+  | 'danger'
+  | 'normal'
+  | 'text'
+  | 'Secondary'
+  | 'Success'
+  | 'info'
+  | 'warning'
+  | 'help';
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  level?: 'important' | 'danger' | 'normal'
+  label?: LabelType;
+  disable?: boolean;
 }
 
-const Button: React.FunctionComponent<Props> = (props) => {
-  const {className, children, level, ...rest} = props;
+const Button: React.FunctionComponent<Props> = props => {
+  const { className, children, label, disable, ...rest } = props;
   return (
     <button
-      className={classes('r-parts-button', `r-parts-button-${level}`, className)} {...rest}>{children}</button>
+      className={classes(
+        'r-parts-button',
+        `r-parts-button-${label}`,
+        disable === true ? `disabled` : '',
+        className,
+      )}
+      {...rest}
+    >
+      {children}
+    </button>
   );
 };
 Button.defaultProps = {
-  level: 'normal'
+  label: 'normal',
+  disable: false,
 };
 export default Button;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Dialog, { alert, confirm, modal } from './dialog';
 
 export default function() {
-  const [x, setX] = useState(false);
+  const [x, setX] = useState(true);
   const openModal = () => {
     const close = modal(
       <h1>
@@ -16,16 +16,6 @@ export default function() {
       <Dialog
         visible={x}
         closeOnClickMask={true}
-        buttons={[
-          <button
-            onClick={() => {
-              setX(false);
-            }}
-          >
-            cancel
-          </button>,
-          <button>ok</button>,
-        ]}
         onClose={() => {
           setX(false);
         }}

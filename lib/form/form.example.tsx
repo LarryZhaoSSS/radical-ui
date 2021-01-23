@@ -70,7 +70,7 @@ const FormExample: React.FunctionComponent = () => {
       buttons={
         <>
           <Button>取消</Button>
-          <Button level={'important'} type="submit">
+          <Button label={'important'} type="submit">
             提交
           </Button>
         </>
