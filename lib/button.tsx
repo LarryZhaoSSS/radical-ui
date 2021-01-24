@@ -19,10 +19,20 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   disable?: boolean;
   loading?: boolean;
   icon?: string | ReactNode;
+  size?: 'normal' | 'small' | 'large';
 }
 
 const Button: React.FunctionComponent<Props> = props => {
-  const { className, children, label, disable, loading, icon, ...rest } = props;
+  const {
+    className,
+    children,
+    label,
+    disable,
+    loading,
+    icon,
+    size,
+    ...rest
+  } = props;
   const isValidIconName = useMemo(() => {
     if (!icon) {
       return false;
@@ -37,6 +47,7 @@ const Button: React.FunctionComponent<Props> = props => {
       className={classes(
         'r-parts-button',
         `r-parts-button-${label}`,
+        `r-parts-button-size-${size}`,
         loading === true ? 'loading' : '',
         disable === true ? `disabled` : '',
         className,
@@ -53,5 +64,6 @@ Button.defaultProps = {
   label: 'normal',
   disable: false,
   loading: false,
+  size: 'normal',
 };
 export default Button;

@@ -2,7 +2,7 @@ import Demo from '../../demo';
 import * as React from 'react';
 const code = `
   <Button label="important">Submit</Button>
-  <Button label="important" disable={true}>diable</Button>
+  <Button label="important" disable={true}>disable</Button>
   <Button>normal</Button>
   <Button disable={true}>disabled</Button>
   <Button label="text">Link</Button>
@@ -21,6 +21,10 @@ const code = `
   <Button icon="check" label="important">Submit</Button>
   <Button icon="search" label="normal">Search</Button>
   <Button icon={<Icon name="trash" />} label="danger">Delete</Button>
+
+  <Button label="important" size="small">Small</Button>
+  <Button label="normal">Normal</Button>
+  <Button label="important" size="large">Large</Button>
 
 `;
 export const ButtonCodeDemo = () => {

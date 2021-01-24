@@ -1,7 +1,5 @@
 @import './helper';
 .r-parts-button {
-  padding: 4px 14px;
-  line-height: 22px;
   border-radius: $border-radius;
   display: inline-flex;
   align-items: center;
@@ -9,6 +7,19 @@
   vertical-align: bottom;
   overflow: hidden;
   cursor: pointer;
+
+  &-size-normal {
+    padding: 4px 14px;
+    height: 32px;
+  }
+  &-size-large {
+    padding: 9px 18px;
+    height: 40px;
+  }
+  &-size-small {
+    padding: 2px 12px;
+    height: 24px;
+  }
   @keyframes loading-spin {
     0% {
       transform: rotate(0deg);
@@ -42,6 +53,7 @@
     &.disabled {
       cursor: default !important;
       pointer-events: none;
+      opacity: 0.7;
     }
   }
   &-normal {
@@ -58,6 +70,7 @@
     &.disabled {
       cursor: default !important;
       pointer-events: none;
+      opacity: 0.7;
     }
   }
   &-important {
@@ -71,6 +84,7 @@
     &.disabled {
       cursor: default !important;
       pointer-events: none;
+      opacity: 0.7;
     }
   }
   &-Secondary {
@@ -84,6 +98,7 @@
     &.disabled {
       cursor: default !important;
       pointer-events: none;
+      opacity: 0.7;
     }
   }
   &-Success {
@@ -97,6 +112,7 @@
     &.disabled {
       cursor: default !important;
       pointer-events: none;
+      opacity: 0.7;
     }
   }
   &-info {
@@ -110,6 +126,7 @@
     &.disabled {
       cursor: default !important;
       pointer-events: none;
+      opacity: 0.7;
     }
   }
   &-warning {
@@ -123,6 +140,7 @@
     &.disabled {
       cursor: default !important;
       pointer-events: none;
+      opacity: 0.7;
     }
   }
   &-help {
@@ -149,6 +167,7 @@
     &.disabled {
       cursor: default !important;
       pointer-events: none;
+      opacity: 0.7;
     }
   }
 }

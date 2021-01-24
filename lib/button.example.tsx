@@ -4,6 +4,7 @@ import { ButtonBasicDemo } from './Button.Demo/ButtonBasicDemo';
 import { ButtonCodeDemo } from './Button.Demo/ButtonCodeDemo';
 import { ButtonIconDemo } from './Button.Demo/ButtonIconDemo';
 import { ButtonServerityDemo } from './Button.Demo/ButtonServerityDemo';
+import { ButtonSizeDemo } from './Button.Demo/ButtonSizeDemo';
 import { DocTable } from './DocTable';
 import { ContentWrapper } from './helpers/CommonElements';
 import {
@@ -62,6 +63,8 @@ const ButtonExample: React.FunctionComponent = () => {
         <ButtonLoadingDemo />
         <SubTitle>Icons</SubTitle>
         <ButtonIconDemo />
+        <SubTitle>Size</SubTitle>
+        <ButtonSizeDemo />
       </ContentCard>
       <ButtonCodeDemo />
       <SubTitle>Properties</SubTitle>

@@ -6,7 +6,7 @@ export const ButtonBasicDemo = () => {
     <>
       <Button label="important">Submit</Button>
       <Button label="important" disable={true}>
-        diable
+        disable
       </Button>
       <Button>normal</Button>
       <Button disable={true}>disabled</Button>
