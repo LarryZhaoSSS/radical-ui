@@ -16,15 +16,34 @@ const PropertiesColumns = ['Name', 'Type', 'Description', 'Default'];
 const PropertitesData = [
   {
     Name: 'label',
-    Type: 'string',
-    Description: 'null',
-    Default: 'Description',
+    Type: `string`,
+    Description:
+      'important | danger | normal | text | Secondary | Success | info | warning | help',
+    Default: 'normal',
   },
   {
     Name: 'icon',
-    Type: 'string',
-    Description: 'null',
-    Default: 'Name of the icon.',
+    Type: 'string | ReactNode',
+    Description: 'name of the icon or ReactNode',
+    Default: 'null',
+  },
+  {
+    Name: 'loading',
+    Type: 'boolean',
+    Description: 'set the loading state of the button',
+    Default: 'false',
+  },
+  {
+    Name: 'disable',
+    Type: 'boolean',
+    Description: 'Disabled state of button',
+    Default: 'false',
+  },
+  {
+    Name: 'onClick',
+    Type: '(event) => void',
+    Description: 'handler to handle click event',
+    Default: '-',
   },
 ];
 const ButtonExample: React.FunctionComponent = () => {
@@ -47,6 +66,9 @@ const ButtonExample: React.FunctionComponent = () => {
       <ButtonCodeDemo />
       <SubTitle>Properties</SubTitle>
       <DocTable columns={PropertiesColumns} data={PropertitesData} />
+      <Description>
+        It accepts all props which native buttons support.
+      </Description>
     </ContentWrapper>
   );
 };
