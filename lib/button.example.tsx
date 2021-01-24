@@ -2,6 +2,7 @@ import React from 'react';
 import { ButtonLoadingDemo } from './Button.Demo/BottonLoadingDemo';
 import { ButtonBasicDemo } from './Button.Demo/ButtonBasicDemo';
 import { ButtonCodeDemo } from './Button.Demo/ButtonCodeDemo';
+import { ButtonIconDemo } from './Button.Demo/ButtonIconDemo';
 import { ButtonServerityDemo } from './Button.Demo/ButtonServerityDemo';
 import { ContentWrapper } from './helpers/CommonElements';
 import {
@@ -25,6 +26,8 @@ const ButtonExample: React.FunctionComponent = () => {
         <ButtonServerityDemo />
         <SubTitle>Loading</SubTitle>
         <ButtonLoadingDemo />
+        <SubTitle>Icons</SubTitle>
+        <ButtonIconDemo />
       </ContentCard>
       <ButtonCodeDemo />
     </ContentWrapper>

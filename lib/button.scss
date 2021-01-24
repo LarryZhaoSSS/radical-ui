@@ -5,8 +5,8 @@
   border-radius: $border-radius;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   vertical-align: bottom;
-  text-align: center;
   overflow: hidden;
   cursor: pointer;
   @keyframes loading-spin {
@@ -23,7 +23,7 @@
   &.loading {
     cursor: default !important;
     pointer-events: none !important;
-    > .r-parts-icon {
+    > .loading-icon {
       margin-right: 6px;
       animation: loading-spin 1s infinite linear;
     }

@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, ReactNode, useMemo } from 'react';
 import classes from './helpers/classnames';
 import './button.scss';
 import Icon from './icon/Icon';
+import { iconNames } from './icon/iconNames';
 type LabelType =
   | 'important'
   | 'danger'
@@ -17,10 +18,20 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: LabelType;
   disable?: boolean;
   loading?: boolean;
+  icon?: string | ReactNode;
 }
 
 const Button: React.FunctionComponent<Props> = props => {
-  const { className, children, label, disable, loading, ...rest } = props;
+  const { className, children, label, disable, loading, icon, ...rest } = props;
+  const isValidIconName = useMemo(() => {
+    if (!icon) {
+      return false;
+    }
+    if (typeof icon === 'string' && iconNames.includes(icon)) {
+      return true;
+    }
+    return false;
+  }, [icon]);
   return (
     <button
       className={classes(
@@ -32,7 +43,8 @@ const Button: React.FunctionComponent<Props> = props => {
       )}
       {...rest}
     >
-      {loading && <Icon name="spinner" />}
+      {loading && <Icon name="spinner" className="loading-icon" />}
+      {isValidIconName ? <Icon name={icon as string} /> : icon}
       {children}
     </button>
   );

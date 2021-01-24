@@ -18,6 +18,10 @@ const code = `
   <Button label="important" loading={true}>loading</Button>
   <Button label="Success" loading={true}>Success</Button>
 
+  <Button icon="check" label="important">Submit</Button>
+  <Button icon="search" label="normal">Search</Button>
+  <Button icon={<Icon name="trash" />} label="important">Delete</Button>
+
 `;
 export const ButtonCodeDemo = () => {
   return <Demo code={code}></Demo>;
