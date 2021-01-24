@@ -20,7 +20,7 @@ const code = `
 
   <Button icon="check" label="important">Submit</Button>
   <Button icon="search" label="normal">Search</Button>
-  <Button icon={<Icon name="trash" />} label="important">Delete</Button>
+  <Button icon={<Icon name="trash" />} label="danger">Delete</Button>
 
 `;
 export const ButtonCodeDemo = () => {

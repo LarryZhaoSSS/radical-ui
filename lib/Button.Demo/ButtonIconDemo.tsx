@@ -11,7 +11,7 @@ export const ButtonIconDemo = () => {
       <Button icon="search" label="normal">
         Search
       </Button>
-      <Button icon={<Icon name="trash" />} label="important">
+      <Button icon={<Icon name="trash" />} label="danger">
         Delete
       </Button>
     </>
