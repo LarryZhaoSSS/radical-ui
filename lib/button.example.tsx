@@ -29,6 +29,12 @@ const PropertitesData = [
     Default: 'null',
   },
   {
+    Name: 'size',
+    Type: 'string',
+    Description: 'Set the size of button',
+    Default: 'normal',
+  },
+  {
     Name: 'loading',
     Type: 'boolean',
     Description: 'set the loading state of the button',
