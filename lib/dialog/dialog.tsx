@@ -1,10 +1,10 @@
 import * as React from 'react';
 import './dialog.scss';
 import { Fragment, ReactElement, ReactNode } from 'react';
-import { Icon } from '../index';
 import { scopedClassMaker } from '../classes';
 import ReactDOM from 'react-dom';
 import Button from '../button';
+import Icon from '../icon/Icon';
 
 interface Props {
   visible: boolean;
@@ -29,10 +29,12 @@ const Dialog: React.FunctionComponent<Props> = props => {
     <Fragment>
       <div className={sc('mask')} onClick={onClickMask}></div>
       <div className={sc('')}>
-        <div className={sc('close')} onClick={onClickClose}>
-          <Icon name="close" />
-        </div>
-        <header className={sc('header')}>title</header>
+        <header className={sc('header')}>
+          <div className="title">Header</div>
+          <div className={sc('close')} onClick={onClickClose}>
+            <Icon name="times" className="close-icon" />
+          </div>
+        </header>
         <main className={sc('main')}> {props.children}</main>
         <footer className={sc('footer')}>
           {props?.buttons ? (
@@ -41,10 +43,12 @@ const Dialog: React.FunctionComponent<Props> = props => {
             )
           ) : (
             <>
-              <Button label="text" onClick={onClickClose}>
-                x cancel
+              <Button label="text" icon="times" onClick={onClickClose}>
+                cancel
               </Button>
-              <Button label="normal">ok</Button>
+              <Button label="important" icon="check">
+                Yes
+              </Button>
             </>
           )}
         </footer>
