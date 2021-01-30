@@ -11,6 +11,8 @@ interface Props {
   buttons?: Array<ReactElement>;
   onClose: React.MouseEventHandler;
   closeOnClickMask?: boolean;
+  title?:string | null | undefined;
+  modal?:boolean;
 }
 
 const scopedClass = scopedClassMaker('r-parts-dialog');
@@ -27,10 +29,13 @@ const Dialog: React.FunctionComponent<Props> = props => {
   };
   const x = props.visible ? (
     <Fragment>
-      <div className={sc('mask')} onClick={onClickMask}></div>
+      {
+        props.modal && <div className={sc('mask')} onClick={onClickMask}></div>
+      }
+
       <div className={sc('')}>
         <header className={sc('header')}>
-          <div className="title">Header</div>
+          <div className="title">{props?.title?props?.title:'Header'}</div>
           <div className={sc('close')} onClick={onClickClose}>
             <Icon name="times" className="close-icon" />
           </div>
@@ -59,6 +64,7 @@ const Dialog: React.FunctionComponent<Props> = props => {
 };
 Dialog.defaultProps = {
   closeOnClickMask: false,
+  modal:true
 };
 const modal = (
   content: ReactNode,

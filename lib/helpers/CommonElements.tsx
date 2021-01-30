@@ -29,3 +29,6 @@ export const ContentCard = styled.div`
   margin-bottom: 2rem;
   margin-top: 2em;
 `;
+export const DemoWrapper =styled.div`
+  padding-left:14px;
+`
