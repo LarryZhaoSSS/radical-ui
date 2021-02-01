@@ -70,6 +70,7 @@ const modal = (
   content: ReactNode,
   buttons?: Array<ReactElement>,
   afterClose?: () => void,
+  type?:'confirm' | 'warning'
 ) => {
   const close = () => {
     ReactDOM.render(React.cloneElement(component, { visible: false }), div);
@@ -86,6 +87,7 @@ const modal = (
       visible={true}
       buttons={buttons}
     >
+      {type==='confirm' && <Icon name="exclamation-triangle"/>}
       {content}
     </Dialog>
   );
@@ -98,7 +100,7 @@ const alert = (content: string) => {
   const button = <button onClick={() => close()}>ok</button>;
   const close = modal(content, [button]);
 };
-const confirm = (content: string, yes?: () => void, no?: () => void) => {
+const confirm = (title:string,content: string, yes?: () => void, no?: () => void) => {
   const onYes = () => {
     close();
     yes && yes();
@@ -112,7 +114,7 @@ const confirm = (content: string, yes?: () => void, no?: () => void) => {
     <button onClick={onYes}>yes</button>,
     <button onClick={onNo}>no</button>,
   ];
-  const close = modal(content, buttons);
+  const close = modal(content, buttons,()=>{},'confirm');
 };
 
 export { alert, confirm, modal };

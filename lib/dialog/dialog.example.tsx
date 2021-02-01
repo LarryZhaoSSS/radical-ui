@@ -9,6 +9,7 @@ import {
 } from '../helpers/CommonElements';
 import { DialogBasicDemo } from './Demos/DialogBasicDemo';
 import { WithoutModalDemo } from './Demos/WithoutModalDemo';
+import { DialogConfirmDemo } from './Demos/DialogConfirmDemo';
 export default function() {
   const [x, setX] = useState(false);
   const openModal = () => {
@@ -29,6 +30,8 @@ export default function() {
           <DialogBasicDemo />
           <SubTitle>Without Modal</SubTitle>
           <WithoutModalDemo/>
+          <SubTitle>Confirmation</SubTitle>
+          <DialogConfirmDemo/>
       </ContentCard>
       <button onClick={() => setX(!x)}>click</button>
       <Dialog
@@ -50,6 +53,7 @@ export default function() {
       <button
         onClick={() => {
           confirm(
+            'Confirmation',
             'confirm content',
             () => {
               console.log('点了yes');

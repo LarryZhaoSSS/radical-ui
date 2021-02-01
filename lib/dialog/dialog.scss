@@ -57,6 +57,12 @@
     min-height: 6em;
     background: #ffffff;
     color: #495057;
+    display: inline-flex;
+    align-items: center;
+    > .r-parts-icon {
+      font-size:28px;
+      font-weight: 400;
+    }
   }
 
   &-footer {
