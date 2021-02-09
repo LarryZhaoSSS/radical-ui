@@ -10,6 +10,48 @@ import {
 import { DialogBasicDemo } from './Demos/DialogBasicDemo';
 import { WithoutModalDemo } from './Demos/WithoutModalDemo';
 import { DialogConfirmDemo } from './Demos/DialogConfirmDemo';
+import { DialogCodeDemo } from './Demos/DialogCodeDemo';
+import { DocTable } from '../DocTable';
+const PropertiesColumns = ['Name', 'Type', 'Description', 'Default'];
+const PropertitesData = [
+  {
+    Name: 'visible',
+    Type: `boolean`,
+    Description:
+      'Specifies the visibility of the dialog.',
+    Default: 'false',
+  },
+  {
+    Name: 'buttons',
+    Type: 'Array<ReactElement>',
+    Description: 'buttons for the footer',
+    Default: 'null',
+  },
+  {
+    Name: 'onClose',
+    Type: 'React.MouseEventHandler',
+    Description: 'Callback to invoke when dialog is hidden.',
+    Default: '()=>void',
+  },
+  {
+    Name: 'closeOnClickMask',
+    Type: 'boolean',
+    Description: 'Whether to close the modal dialog when the mask (area outside the modal) is clicked',
+    Default: 'false',
+  },
+  {
+    Name: 'title',
+    Type: 'string',
+    Description: 'title of the dialog',
+    Default: '',
+  },
+  {
+    Name: 'modal',
+    Type: 'boolean',
+    Description: 'Defines if background should be blocked when dialog is displayed.',
+    Default: 'true',
+  },
+];
 export default function() {
   const [x, setX] = useState(false);
   const openModal = () => {
@@ -33,6 +75,10 @@ export default function() {
           <SubTitle>Confirmation</SubTitle>
           <DialogConfirmDemo/>
       </ContentCard>
+      <DialogCodeDemo/>
+      <SubTitle>Properties</SubTitle>
+      <DocTable columns={PropertiesColumns} data={PropertitesData} />
+
       <button onClick={() => setX(!x)}>click</button>
       <Dialog
         visible={x}

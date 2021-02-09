@@ -18,7 +18,7 @@ export const DialogBasicDemo: React.FC<Props> = () => {
           setVisible(false);
         }}
       >
-        <div>main-content222</div>
+        <div>main-content</div>
       </Dialog>
     </>
   );

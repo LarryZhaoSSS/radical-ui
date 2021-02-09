@@ -6,12 +6,12 @@ export const DialogConfirmDemo: React.FC<Props> = () => {
   const onClick = ()=>{
     confirm(
       'Confirmation',
-      'confirm content',
+      'Are you sure you want to proceed?',
       () => {
-        console.log('点了yes');
+        console.log('click on yes');
       },
       () => {
-        console.log('点了no');
+        console.log('click on no');
       },
     );
   }

@@ -111,8 +111,8 @@ const confirm = (title:string,content: string, yes?: () => void, no?: () => void
   };
 
   const buttons = [
-    <button onClick={onYes}>yes</button>,
-    <button onClick={onNo}>no</button>,
+    <Button label="text" onClick={onNo}>No</Button>,
+    <Button label="important" icon="check" onClick={onYes}>Yes</Button>
   ];
   const close = modal(content, buttons,()=>{},'confirm');
 };
