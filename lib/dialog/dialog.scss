@@ -63,6 +63,26 @@
       font-size:28px;
       font-weight: 400;
     }
+    > .type-icon-info {
+      font-size:24px;
+      color:$main-color;
+      margin-right:8px;
+    }
+    > .type-icon-error {
+      font-size:24px;
+      color:$danger-color;
+      margin-right:8px;
+    }
+    > .type-icon-warning {
+      font-size:24px;
+      color:$warning-color;
+      margin-right:8px;
+    }
+    > .type-icon-success {
+      font-size:24px;
+      color:$success-color;
+      margin-right:8px;
+    }
   }
 
   &-footer {

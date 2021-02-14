@@ -12,6 +12,7 @@ import { WithoutModalDemo } from './Demos/WithoutModalDemo';
 import { DialogConfirmDemo } from './Demos/DialogConfirmDemo';
 import { DialogCodeDemo } from './Demos/DialogCodeDemo';
 import { DocTable } from '../DocTable';
+import { DialogAlertDemo } from './Demos/DialogAlertDemo';
 const PropertiesColumns = ['Name', 'Type', 'Description', 'Default'];
 const PropertitesData = [
   {
@@ -74,6 +75,8 @@ export default function() {
           <WithoutModalDemo/>
           <SubTitle>Confirmation</SubTitle>
           <DialogConfirmDemo/>
+          <SubTitle>information dialog</SubTitle>
+          <DialogAlertDemo/>
       </ContentCard>
       <DialogCodeDemo/>
       <SubTitle>Properties</SubTitle>
@@ -91,10 +94,24 @@ export default function() {
       </Dialog>
       <button
         onClick={() => {
-          alert('hahaa');
+          alert('info','This is a notification message');
         }}
       >
         alert trigger
+      </button>
+      <button
+        onClick={() => {
+          alert('error hint','This is a error message','error');
+        }}
+      >
+        alert error
+      </button>
+      <button
+        onClick={() => {
+          alert('warning hint','This is a warning message','warning');
+        }}
+      >
+        alert warning
       </button>
       <button
         onClick={() => {

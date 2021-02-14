@@ -14,6 +14,7 @@ interface Props {
   title?:string | null | undefined;
   modal?:boolean;
 }
+type ModalType ='confirm' | 'warning' | 'error' | 'info' | 'success'
 
 const scopedClass = scopedClassMaker('r-parts-dialog');
 const sc = scopedClass;
@@ -70,7 +71,8 @@ const modal = (
   content: ReactNode,
   buttons?: Array<ReactElement>,
   afterClose?: () => void,
-  type?:'confirm' | 'warning'
+  type?: ModalType,
+  title?:string
 ) => {
   const close = () => {
     ReactDOM.render(React.cloneElement(component, { visible: false }), div);
@@ -84,10 +86,23 @@ const modal = (
         close();
         afterClose && afterClose();
       }}
+      title={title}
       visible={true}
       buttons={buttons}
     >
       {type==='confirm' && <Icon name="exclamation-triangle"/>}
+      {
+        type === 'info' && <Icon name="info-circle" className="type-icon-info"/>
+      }
+      {
+        type === 'error' && <Icon name="times-circle" className="type-icon-error"/>
+      }
+      {
+        type === 'warning'  && <Icon name="info-circle" className="type-icon-warning"/>
+      }
+      {
+        type === 'success' && <Icon name="check-circle" className="type-icon-success"/>
+      }
       {content}
     </Dialog>
   );
@@ -96,9 +111,9 @@ const modal = (
   ReactDOM.render(component, div);
   return close;
 };
-const alert = (content: string) => {
-  const button = <button onClick={() => close()}>ok</button>;
-  const close = modal(content, [button]);
+const alert = (title:string,content: string,type:ModalType = 'info') => {
+  const button = <Button label="important" size="normal" onClick={() => close()}>ok</Button>;
+  const close = modal(content, [button],()=>{},type,title);
 };
 const confirm = (title:string,content: string, yes?: () => void, no?: () => void) => {
   const onYes = () => {
