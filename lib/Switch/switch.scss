@@ -1,11 +1,12 @@
+@import '../_helper';
 $h: 22px;
 $h2: $h - 4px;
 .r-parts-switch {
   height: $h;
   width: $h * 2;
   border: none;
-  background: grey;
-  border-radius: $h / 2;
+  background: #ced4da;
+  border-radius: 30px;
   position: relative;
   > span {
     position: absolute;
@@ -15,10 +16,10 @@ $h2: $h - 4px;
     width: $h2;
     background: white;
     border-radius: $h2 / 2;
-    transition: left 0.25s;
+    transition: left 0.2s,background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
   &.checked {
-    background: #1890ff;
+    background: $main-color;
   }
   &.checked > span {
     left: calc(100% - #{$h2} - 2px);

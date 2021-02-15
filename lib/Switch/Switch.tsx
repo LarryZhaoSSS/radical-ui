@@ -6,14 +6,16 @@ type Props  = {
   value:boolean;
   onChange?:(value:boolean)=>void
   disabled?:boolean
+  className?:string
 }
 export const Switch:React.FC<Props> = (props)=>{
-  const  {value,onChange,disabled} = props
+  const  {value,onChange,disabled,className} = props
   const classNames = useMemo(()=>{
     return classnames({
       'r-parts-switch':true,
       checked:value,
-      'disabled':disabled
+      'disabled':disabled,
+      className
     })
   },[value,disabled])
   return <>
