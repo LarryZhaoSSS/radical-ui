@@ -84,6 +84,30 @@ export const DialogConfirmDemo: React.FC<Props> = () => {
     </>
   );
 };
+
+// information dialogs
+
+<Button label="info" onClick={() => {alert('info', 'This is a notification message');}}>
+  info
+</Button>
+
+<Button label="Success" onClick={() => {
+  alert('success', 'success message', 'success');
+}}>
+ success
+</Button>
+
+<Button label="danger" onClick={() => {
+  alert('error', 'This is an error message', 'error');
+}}>
+ error
+</Button>
+
+<Button label="warning" onClick={() => {
+  alert('warning', 'This is a warning message', 'warning');
+}}>
+  warning
+</Button>
 `;
 export const DialogCodeDemo = () => {
   return <Demo code={code}></Demo>;

@@ -16,6 +16,7 @@ import ScrollExample from './lib/scroll/scroll.example';
 import { CitySelectExample } from './lib/citySelected/citySelect.example';
 import { TreeExample } from './lib/tree/tree.example';
 import IconExample from './lib/icon/icon.example';
+import { SwitchExample } from './lib/Switch/Switch.example';
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
@@ -32,6 +33,9 @@ ReactDOM.render(
             </li>
             <li>
               <Link to="/button">Button</Link>
+            </li>
+            <li>
+              <Link to="/switch">Switch</Link>
             </li>
             <li>
               <Link to="/dialog"> Dialog </Link>
@@ -53,6 +57,7 @@ ReactDOM.render(
         <Content className="site-main">
           <Route path="/icon" component={IconExample} />
           <Route path="/button" component={ButtonExample} />
+          <Route path="/switch" component={SwitchExample} />
           <Route path="/dialog" component={DialogExample} />
           <Route path="/layout" component={LayoutExample} />
           <Route path="/form" component={FormExample} />

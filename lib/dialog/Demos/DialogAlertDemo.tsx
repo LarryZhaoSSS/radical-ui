@@ -5,28 +5,28 @@ type Props = {};
 export const DialogAlertDemo: React.FC<Props> = () => {
   return (
     <>
-      <Button label="normal"
+      <Button label="info"
         onClick={() => {
           alert('info', 'This is a notification message');
         }}
       >
         info
       </Button>
-      <Button label="normal"
+      <Button label="Success"
         onClick={() => {
           alert('success', 'success message', 'success');
         }}
       >
         success
       </Button>
-      <Button label="normal"
+      <Button label="danger"
         onClick={() => {
           alert('error hint', 'This is a error message', 'error');
         }}
       >
         error
       </Button>
-      <Button label="normal"
+      <Button label="warning"
         onClick={() => {
           alert('warning hint', 'This is a warning message', 'warning');
         }}
