@@ -29,7 +29,7 @@ pre {
   font-family: 'Fira Code Retina', monospace, Consolas;
 }
 $padding: 16px;
-$main-color: #00adb5;
+$main-color: #2196f3;
 $border-color: #eee;
 .site-page {
   min-height: 100vh;
@@ -51,11 +51,15 @@ $border-color: #eee;
         display: block;
         &:hover {
           color: $main-color;
+          background:#e9ecef;
         }
         &.active {
           color: white;
-          background: desaturate($main-color, 50%);
+          font-weight:700;
+          // background: desaturate($main-color, 60%);
+          background-color: $main-color;
         }
+
       }
     }
   }
