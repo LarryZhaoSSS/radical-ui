@@ -27,7 +27,7 @@ ReactDOM.render(
       </Header>
       <Layout>
         <Aside className="site-aside">
-          <h2>组建</h2>
+          <h2>Components</h2>
           <ul>
             <li>
               <Link to="/icon"> icon </Link>
