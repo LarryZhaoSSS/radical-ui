@@ -1,3 +1,4 @@
+@import '../helper';
 .r-parts-menu {
   display: flex;
   flex-wrap: wrap;
@@ -60,7 +61,7 @@
       padding: $menu-item-padding-y $menu-item-padding-x;
       cursor: pointer;
       transition: $menu-transition;
-      color: $body-color;
+      color: #212529;
       &.is-active,
       &:hover {
         color: $menu-item-active-color !important;
@@ -79,7 +80,7 @@
   }
   .r-parts-submenu {
     position: absolute;
-    background: $white;
+    background: #fff;
     z-index: 100;
     top: calc(100% + 8px);
     left: 0;

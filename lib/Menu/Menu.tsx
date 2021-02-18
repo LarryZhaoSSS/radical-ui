@@ -57,6 +57,7 @@ export const Menu: React.FC<MenuProps> = (props) => {
         return React.cloneElement(childElement, { index: index.toString() });
       } else {
         console.error('warning menu have a child but not a MenuItem component');
+        return null
       }
     });
   };

@@ -2,7 +2,7 @@ import React, { useContext, useState, FunctionComponentElement } from 'react';
 import classNames from 'classnames';
 import { MenuContext } from './Menu';
 import { MenuItemProps } from './MenuItem';
-import { Icon } from '../Icon/Icon';
+import Icon from '../icon/Icon';
 import { Transition } from '../Transition/Transition';
 
 export interface SubMenuProps {
@@ -69,6 +69,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
         });
       } else {
         console.error('Warning: SubMenu has a child but not a MenuItem');
+        return null
       }
     });
 
@@ -82,7 +83,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
     <li key={index} className={classes} {...hoverEvents}>
       <div className='submenu-title' {...clickEvents}>
         {title}
-        <Icon icon='angle-down' className='arrow-icon' />
+        <Icon name="angle-down" className='arrow-icon' />
       </div>
       {renderChildren()}
     </li>
