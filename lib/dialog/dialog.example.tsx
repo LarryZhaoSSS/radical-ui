@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Dialog, { alert, confirm, modal } from './dialog';
+import React from 'react';
 import {
   ContentCard,
   ContentWrapper,
@@ -53,15 +52,29 @@ const PropertitesData = [
     Default: 'true',
   },
 ];
+const alertPropsData = [
+  {
+    Name: 'title',
+    Type: `string`,
+    Description:
+      'title of the alert dialog',
+    Default: '',
+  },
+  {
+    Name: 'content',
+    Type: 'ReactNode',
+    Description: 'content of the dialog',
+    Default: 'null',
+  },
+  {
+    Name: 'type',
+    Type: 'string',
+    Description: `confirm | warning | error | info | success`,
+    Default: 'info',
+  }
+]
 export default function() {
-  const [x, setX] = useState(false);
-  const openModal = () => {
-    const close = modal(
-      <h1>
-        你好，点我关闭<button onClick={() => close()}>close</button>
-      </h1>,
-    );
-  };
+
   return (
     <ContentWrapper>
       <MainTitle>Dialog</MainTitle>
@@ -81,62 +94,9 @@ export default function() {
       <DialogCodeDemo/>
       <SubTitle>Properties</SubTitle>
       <DocTable columns={PropertiesColumns} data={PropertitesData} />
+      <SubTitle>alert method</SubTitle>
+      <DocTable columns={PropertiesColumns} data={alertPropsData} />
 
-      <button onClick={() => setX(!x)}>click</button>
-      <Dialog
-        visible={x}
-        closeOnClickMask={true}
-        onClose={() => {
-          setX(false);
-        }}
-      >
-        <div>main-content</div>
-      </Dialog>
-      <button
-        onClick={() => {
-          alert('info','This is a notification message');
-        }}
-      >
-        alert trigger
-      </button>
-      <button
-        onClick={() => {
-          alert('error hint','This is a error message','error');
-        }}
-      >
-        alert error
-      </button>
-      <button
-        onClick={() => {
-          alert('warning hint','This is a warning message','warning');
-        }}
-      >
-        alert warning
-      </button>
-      <button
-        onClick={() => {
-          confirm(
-            'Confirmation',
-            'confirm content',
-            () => {
-              console.log('点了yes');
-            },
-            () => {
-              console.log('点了no');
-            },
-          );
-        }}
-      >
-        confirm trigger
-      </button>
-      <button
-        onClick={() => {
-          modal(<h2>modal hi</h2>);
-        }}
-      >
-        modal trigger
-      </button>
-      <button onClick={openModal}>close in content</button>
     </ContentWrapper>
   );
 }
