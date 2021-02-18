@@ -1057,6 +1057,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7":
+  version "7.12.13"
+  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.12.13.tgz#0a21452352b02542db0ffb928ac2d3ca7cb6d66d"
+  integrity sha1-CiFFI1KwJULbD/uSisLTyny21m0=
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.10.4", "@babel/template@^7.12.7", "@babel/template@^7.2.2", "@babel/template@^7.4.0":
   version "7.12.7"
   resolved "https://registry.npm.taobao.org/@babel/template/download/@babel/template-7.12.7.tgz#c817233696018e39fbb6c491d2fb684e05ed43bc"
@@ -1414,6 +1421,13 @@
   integrity sha1-N3zPUeolxlawiqR0+4GUZhAJuGU=
   dependencies:
     "@types/react" "^16"
+
+"@types/react-transition-group@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.npm.taobao.org/@types/react-transition-group/download/@types/react-transition-group-4.4.0.tgz?cache=0&sync_timestamp=1613384164919&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact-transition-group%2Fdownload%2F%40types%2Freact-transition-group-4.4.0.tgz#882839db465df1320e4753e6e9f70ca7e9b4d46d"
+  integrity sha1-iCg520Zd8TIOR1Pm6fcMp+m01G0=
+  dependencies:
+    "@types/react" "*"
 
 "@types/react@*", "@types/react@^17.0.0":
   version "17.0.0"
@@ -3134,6 +3148,14 @@ dom-converter@^0.2:
   integrity sha1-ZyGp2u4uKTaClVtq/kFncWJ7t2g=
   dependencies:
     utila "~0.4"
+
+dom-helpers@^5.0.1:
+  version "5.2.0"
+  resolved "https://registry.npm.taobao.org/dom-helpers/download/dom-helpers-5.2.0.tgz#57fd054c5f8f34c52a3eeffdb7e7e93cd357d95b"
+  integrity sha1-V/0FTF+PNMUqPu/9t+fpPNNX2Vs=
+  dependencies:
+    "@babel/runtime" "^7.8.7"
+    csstype "^3.0.2"
 
 dom-serializer@0:
   version "0.2.2"
@@ -6749,6 +6771,16 @@ react-test-renderer@^16.0.0-0, react-test-renderer@^16.8.4:
     prop-types "^15.6.2"
     react-is "^16.8.6"
     scheduler "^0.19.1"
+
+react-transition-group@^4.4.1:
+  version "4.4.1"
+  resolved "https://registry.npm.taobao.org/react-transition-group/download/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
+  integrity sha1-Y4aPkyWjjqXulTXYKDJ/hXczRck=
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    dom-helpers "^5.0.1"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
 
 react@^17.0.1:
   version "17.0.1"

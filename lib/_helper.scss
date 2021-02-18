@@ -1,3 +1,5 @@
+@import './styles/mixin';
+@import './styles/animation';
 $main-color: #2196f3;
 $secondary-color: #607d8b;
 $success-color: #689f38;
@@ -6,3 +8,23 @@ $warning-color: #fbc02d;
 $help-color: #9c27b0;
 $danger-color: #d32f2f;
 $border-radius: 3px;
+
+
+// menu
+$menu-border-width: 2px !default;
+$menu-border-color: #dee2e6 !default;
+$menu-box-shadow: inset 0 1px 0 rgba(#fff, 0.15),
+  0 1px 1px rgba(#000, 0.075) !default;
+$menu-transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out !default;
+
+// menu-item
+$menu-item-padding-y: 0.5rem !default;
+$menu-item-padding-x: 1rem !default;
+$menu-item-active-color: $main-color !default;
+$menu-item-active-border-width: 2px !default;
+$menu-item-disabled-color: $secondary-color !default;
+
+//sub-menu
+//submenu
+$submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
+  0 0 6px 0 rgba(0, 0, 0, 0.04);
