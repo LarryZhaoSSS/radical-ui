@@ -1,0 +1,46 @@
+@import '../helper.scss';
+.r-parts-spinner-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right:1rem;
+  @keyframes spinner-border {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  > .r-parts-spinner-border {
+
+    width: 3rem;
+    height: 3rem;
+    vertical-align: text-bottom;
+    // border: 0.24rem solid #6c757d;
+    border: 0.24rem solid lighten($color: $main-color, $amount: 0.7);
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: 0.75s linear infinite spinner-border;
+    animation: 0.75s linear infinite spinner-border;
+    &.r-parts-spinner-large {
+      width: 4rem;
+      height: 4rem;
+    }
+    &.r-parts-spinner-small {
+      width:2rem;
+      height:2rem;
+    }
+  }
+  > .r-parts-spinner-text {
+    font-size: 1rem;
+    margin-top:4px;
+    color:lighten($color: $main-color, $amount: 0.7);
+  }
+  > .r-parts-spinner-custom {
+    border-right-color: transparent;
+    -webkit-animation: 0.75s linear infinite spinner-border;
+    animation: 0.75s linear infinite spinner-border;
+  }
+}
