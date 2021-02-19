@@ -11,6 +11,9 @@ import styled from 'styled-components';
 import Icon from '../icon/Icon';
 import {useState} from 'react';
 import { Switch } from '../Switch/Switch';
+import { SpinnerCodeDemo } from './SpinnerCodeDemo';
+import { DocTable } from '../DocTable';
+
 const SizeWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -31,6 +34,41 @@ const EmbeddedWrapper = styled.div`
     margin-bottom:15px;
   }
 `
+const PropertiesColumns = ['Name', 'Type', 'Description', 'Default'];
+const PropertitesData = [
+  {
+    Name: 'loading',
+    Type: 'boolean',
+    Description: 'Whether Spinner is spinning',
+    Default: 'false',
+  },
+  {
+    Name: 'size',
+    Type: `small | normal | large`,
+    Description:
+      'The size of Spin',
+    Default: 'normal',
+  },
+  {
+    Name: 'tip',
+    Type: 'string',
+    Description: 'Customize description content',
+    Default: 'undefined',
+  },
+
+  {
+    Name: 'indicator',
+    Type: 'ReactNode',
+    Description: 'React node of the spinning indicator',
+    Default: 'null',
+  },
+  {
+    Name: 'wrapperClass',
+    Type: 'string',
+    Description: 'The className of spinner wrapper when does not have indicator property ',
+    Default: 'undefined',
+  }
+];
 export const SpinnerExample = () => {
   const [loading,setLoading] = useState<boolean>(true)
   return (
@@ -40,7 +78,7 @@ export const SpinnerExample = () => {
       <ContentCard>
         <SubTitle>Size</SubTitle>
         <SizeWrapper>
-          <Spinner size={'small'} loading={true} />
+          <Spinner size={'small'} loading={true}/>
           <Spinner loading={true} />
           <Spinner size={'large'} loading={true} />
         </SizeWrapper>
@@ -56,7 +94,7 @@ export const SpinnerExample = () => {
             indicator={<Icon style={{ fontSize: '2rem' }} name="spinner" />}
           />
         </CustomWrapper>
-        <SubTitle>Embedding content into Spin</SubTitle>
+        <SubTitle>Embedding into a content</SubTitle>
         <EmbeddedWrapper>
         <Switch value={loading} onChange={(value)=>{setLoading(value)}}/>
           <Spinner
@@ -66,6 +104,9 @@ export const SpinnerExample = () => {
           </Spinner>
         </EmbeddedWrapper>
       </ContentCard>
+      <SpinnerCodeDemo/>
+      <SubTitle>Properties</SubTitle>
+      <DocTable columns={PropertiesColumns} data={PropertitesData} />
     </ContentWrapper>
   );
 };
