@@ -14,6 +14,8 @@
     align-items: center;
     svg {
       color: $input-placeholder-color;
+      z-index:4;
+      font-size:14px;
     }
   }
 }
@@ -37,7 +39,7 @@
 
   box-shadow: $input-box-shadow;
   transition: $input-transition;
-
+  z-index:3;
   &:focus {
     color: $input-focus-color;
     background-color: $input-focus-bg;
@@ -53,7 +55,7 @@
   }
   &:disabled,
   &[readonly] {
-    background-color: $input-disabled-bg;
+    // background-color: $input-disabled-bg;
     border-color: $input-disabled-border-color;
     // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
     opacity: 1;
@@ -89,13 +91,13 @@
   @include border-left-radius(0);
 }
 
-.input-size-sm .r-parts-input-inner {
+.input-size-small .r-parts-input-inner {
   padding: $input-padding-y-sm $input-padding-x-sm;
   font-size: $input-font-size-sm;
   border-radius: $input-border-radius-sm;
 }
 
-.input-size-lg .r-parts-input-inner {
+.input-size-large .r-parts-input-inner {
   padding: $input-padding-y-lg $input-padding-x-lg;
   font-size: $input-font-size-lg;
   border-radius: $input-border-radius-lg;
