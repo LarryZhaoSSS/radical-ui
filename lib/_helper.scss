@@ -9,12 +9,12 @@ $help-color: #9c27b0;
 $danger-color: #d32f2f;
 $border-radius: 3px;
 
+$font-weight-normal: 400 !default;
 
 // menu
 $menu-border-width: 2px !default;
 $menu-border-color: #dee2e6 !default;
-$menu-box-shadow: inset 0 1px 0 rgba(#fff, 0.15),
-  0 1px 1px rgba(#000, 0.075) !default;
+$menu-box-shadow: inset 0 1px 0 rgba(#fff, 0.15), 0 1px 1px rgba(#000, 0.075) !default;
 $menu-transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out !default;
 
 // menu-item
@@ -28,3 +28,52 @@ $menu-item-disabled-color: $secondary-color !default;
 //submenu
 $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
   0 0 6px 0 rgba(0, 0, 0, 0.04);
+
+//input
+$input-padding-y: 8px !default;
+$input-padding-x: 16px !default;
+$input-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+$input-font-size: 14px !default;
+$input-font-weight: 400 !default;
+$input-line-height: 1.5 !default;
+
+$input-padding-y-sm: 4px !default;
+$input-padding-x-sm: 8px !default;
+$input-font-size-sm: 14px !default;
+
+$input-padding-y-lg: 8px !default;
+$input-padding-x-lg: 16px !default;
+$input-font-size-lg: 16px !default;
+
+$input-bg: #fff !default;
+$input-disabled-bg: #e9ecef !default;
+$input-disabled-border-color: null !default;
+
+$input-color: #495057 !default;
+$input-border-color: #ced4da !default;
+$input-border-width: 1px !default;
+$input-box-shadow: inset 0 1px 2px rgba(#333, 0.075) !default;
+
+$input-border-radius: 4px !default;
+$input-border-radius-lg: 4px !default;
+$input-border-radius-sm: 2px !default;
+
+$input-focus-bg: #fff !default;
+$input-focus-border-color: lighten($main-color, 25%) !default;
+$input-focus-width: 0.2rem !default;
+$input-focus-color: #495057 !default;
+$input-focus-shadow-color: rgba($main-color, 0.25) !default;
+$input-focus-box-shadow: 0 0 0 $input-focus-width $input-focus-shadow-color !default;
+
+$input-placeholder-color: #6c757d !default;
+$input-plaintext-color: #212529 !default;
+
+$input-height-border: $input-border-width * 2 !default;
+
+$input-transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out !default;
+
+$input-group-addon-color: $input-color !default;
+$input-group-addon-bg: #212529 !default;
+$input-group-addon-border-color: $input-border-color !default;

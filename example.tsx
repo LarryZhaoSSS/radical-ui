@@ -19,6 +19,7 @@ import IconExample from './lib/icon/icon.example';
 import { SwitchExample } from './lib/Switch/Switch.example';
 import { MenuExample } from './lib/Menu/menu.example';
 import { SpinnerExample } from './lib/Spinner/spinner.example';
+import { InputExample } from './lib/InputText/input.example';
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
@@ -44,6 +45,9 @@ ReactDOM.render(
             </li>
             <li>
               <Link to="/layout"> Layout </Link>
+            </li>
+            <li>
+              <Link to="/input"> Input </Link>
             </li>
             <li>
               <Link to="/menu">Menu</Link>
@@ -74,6 +78,7 @@ ReactDOM.render(
           <Route path="/citySelect" component={CitySelectExample} />
           <Route path="/tree" component={TreeExample} />
           <Route path="/spinner" component={SpinnerExample} />
+          <Route path="/input" component={InputExample} />
         </Content>
       </Layout>
       <Footer className="site-footer">&copy; larry-sss</Footer>
