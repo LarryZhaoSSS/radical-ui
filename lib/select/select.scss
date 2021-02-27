@@ -1,6 +1,11 @@
 @import '../helper.scss';
 .r-parts-select {
   position: relative;
+  &.is-multiple {
+    .r-parts-input-wrapper {
+      width: 100%;
+    }
+  }
   .r-parts-input-wrapper {
     cursor: pointer;
     &:hover {
@@ -19,7 +24,7 @@
 
     }
     &:disabled {
-      background-color: $input-disabled-bg;
+      // background-color: $input-disabled-bg;
       border-color: $input-disabled-border-color;
       // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
       opacity: 1;
@@ -88,6 +93,9 @@
   align-items: center;
   flex-wrap: wrap;
   .r-parts-tag {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     height: 80%;
     padding: 2px 5px;
     box-sizing: border-box;
