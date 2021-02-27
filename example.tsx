@@ -20,6 +20,7 @@ import { SwitchExample } from './lib/Switch/Switch.example';
 import { MenuExample } from './lib/Menu/menu.example';
 import { SpinnerExample } from './lib/Spinner/spinner.example';
 import { InputExample } from './lib/InputText/input.example';
+import { SelectExample } from './lib/select/select.example';
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
@@ -48,6 +49,9 @@ ReactDOM.render(
             </li>
             <li>
               <Link to="/input"> Input </Link>
+            </li>
+            <li>
+              <Link to="/select"> Select </Link>
             </li>
             <li>
               <Link to="/menu">Menu</Link>
@@ -79,6 +83,7 @@ ReactDOM.render(
           <Route path="/tree" component={TreeExample} />
           <Route path="/spinner" component={SpinnerExample} />
           <Route path="/input" component={InputExample} />
+          <Route path="/select" component={SelectExample} />
         </Content>
       </Layout>
       <Footer className="site-footer">&copy; larry-sss</Footer>
