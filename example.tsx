@@ -21,6 +21,7 @@ import { MenuExample } from './lib/Menu/menu.example';
 import { SpinnerExample } from './lib/Spinner/spinner.example';
 import { InputExample } from './lib/InputText/input.example';
 import { SelectExample } from './lib/select/select.example';
+import { TabExample } from './lib/Tabs/tab.example';
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
@@ -57,6 +58,9 @@ ReactDOM.render(
               <Link to="/menu">Menu</Link>
             </li>
             <li>
+              <Link to="/tab">Tab</Link>
+            </li>
+            <li>
               <Link to="/spinner">Spinner</Link>
             </li>
             <li>
@@ -78,6 +82,7 @@ ReactDOM.render(
           <Route path="/layout" component={LayoutExample} />
           <Route path="/menu" component={MenuExample} />
           <Route path="/form" component={FormExample} />
+          <Route path="/tab" component={TabExample} />
           <Route path="/scroll" component={ScrollExample} />
           <Route path="/citySelect" component={CitySelectExample} />
           <Route path="/tree" component={TreeExample} />

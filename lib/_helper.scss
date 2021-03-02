@@ -1,5 +1,6 @@
 @import './styles/mixin';
 @import './styles/animation';
+
 $main-color: #2196f3;
 $secondary-color: #607d8b;
 $success-color: #689f38;
@@ -8,6 +9,18 @@ $warning-color: #fbc02d;
 $help-color: #9c27b0;
 $danger-color: #d32f2f;
 $border-radius: 3px;
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
 
 $font-weight-normal: 400 !default;
 $font-weight-bold: 700 !default;
@@ -79,3 +92,20 @@ $input-transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out !d
 $input-group-addon-color: $input-color !default;
 $input-group-addon-bg: #e9ecef !default;
 $input-group-addon-border-color: $input-border-color !default;
+
+
+// Navs
+
+$nav-link-padding-y:                .5rem !default;
+$nav-link-padding-x:                1rem !default;
+$nav-link-disabled-color:           $gray-600 !default;
+
+$nav-tabs-border-color:             $gray-300 !default;
+$nav-tabs-border-width:             1px !default;
+$nav-tabs-border-radius:            4px !default;
+$nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color !default;
+$nav-tabs-link-hover-color:         $main-color !default;
+$nav-tabs-link-active-color:        $main-color !default;
+$nav-tabs-link-active-bg:           $white !default;
+$nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
+$nav-tabs-content-margin:           1rem !default;
