@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentCard, ContentWrapper } from '../helpers/CommonElements';
+import { ContentCard, ContentWrapper, SubTitle } from '../helpers/CommonElements';
 import Tab from './index';
 const { TabItem } = Tab;
 export const TabExample = () => {
@@ -7,14 +7,22 @@ export const TabExample = () => {
     <ContentWrapper>
       tab example
       <ContentCard>
-        <Tab defaultIndex={0} onSelect={function noRefCheck() {}} type="line">
-          <TabItem label="选项卡一">this is content one</TabItem>
-          <TabItem label="选项卡二">this is content two</TabItem>
-          <TabItem label="用户管理">this is content three</TabItem>
+        <SubTitle>Default</SubTitle>
+        <Tab defaultIndex={0} onSelect={(key)=>{console.log(key)}} type="line">
+          <TabItem label="Header I">this is content one</TabItem>
+          <TabItem label="Header II">this is content two</TabItem>
+          <TabItem label="Header III">this is content three</TabItem>
         </Tab>
-        <Tab defaultIndex={0} onSelect={function noRefCheck() {}} type="card">
+        <SubTitle>Disabled</SubTitle>
+        <Tab defaultIndex={0} onSelect={(key)=>{console.log(key)}} type="line">
+          <TabItem label="Header I">this is content one</TabItem>
+          <TabItem label="Header II">this is content two</TabItem>
+          <TabItem label="Header III" disabled>this is content three</TabItem>
+        </Tab>
+        <SubTitle>Card type</SubTitle>
+        <Tab defaultIndex={0} onSelect={(key)=>{console.log(key)}} type="card">
           <TabItem label="card1">this is card one</TabItem>
-          <TabItem label="card2">this is content two</TabItem>
+          <TabItem label="card2">this is card two</TabItem>
           <TabItem disabled label="disabled">
             this is content three
           </TabItem>
