@@ -29,12 +29,14 @@
 }
 .nav-line {
   .r-parts-tabs-nav-item {
+    &:hover {
+      border-bottom: $nav-tabs-border-width * 2 solid  $gray-600;
+      color:$gray-600;
+    }
     &.is-active {
       border-bottom: $nav-tabs-border-width * 2 solid  $nav-tabs-link-active-color;
     }
-    &:hover {
-      border-bottom: $nav-tabs-border-width * 2 solid  $gray-600;
-    }
+
   }
 }
 
