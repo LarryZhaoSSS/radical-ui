@@ -22,6 +22,7 @@ import { SpinnerExample } from './lib/Spinner/spinner.example';
 import { InputExample } from './lib/InputText/input.example';
 import { SelectExample } from './lib/select/select.example';
 import { TabExample } from './lib/Tabs/tab.example';
+import { AutoCompleteExample } from './lib/AutoComplete/AutoComplete.example';
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
@@ -31,6 +32,11 @@ ReactDOM.render(
       </Header>
       <Layout>
         <Aside className="site-aside">
+          <h2>Development</h2>
+          <ul>
+            <li><a href="">install</a></li>
+            <li><a href="">quick start</a></li>
+          </ul>
           <h2>Components</h2>
           <ul>
             <li>
@@ -53,6 +59,9 @@ ReactDOM.render(
             </li>
             <li>
               <Link to="/select"> Select </Link>
+            </li>
+            <li>
+              <Link to="/autoComplete"> AutoComplete </Link>
             </li>
             <li>
               <Link to="/menu">Menu</Link>
@@ -89,6 +98,7 @@ ReactDOM.render(
           <Route path="/spinner" component={SpinnerExample} />
           <Route path="/input" component={InputExample} />
           <Route path="/select" component={SelectExample} />
+          <Route path="/autoComplete" component={AutoCompleteExample} />
         </Content>
       </Layout>
       <Footer className="site-footer">&copy; larry-sss</Footer>
