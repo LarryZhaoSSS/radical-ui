@@ -23,6 +23,8 @@ import { InputExample } from './lib/InputText/input.example';
 import { SelectExample } from './lib/select/select.example';
 import { TabExample } from './lib/Tabs/tab.example';
 import { AutoCompleteExample } from './lib/AutoComplete/AutoComplete.example';
+import { UploadExample } from './lib/Uploader/uploader.example';
+import { ProgressExample } from './lib/Progress/progress.example';
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
@@ -64,6 +66,9 @@ ReactDOM.render(
               <Link to="/autoComplete"> AutoComplete </Link>
             </li>
             <li>
+              <Link to="/upload"> Upload </Link>
+            </li>
+            <li>
               <Link to="/menu">Menu</Link>
             </li>
             <li>
@@ -71,6 +76,9 @@ ReactDOM.render(
             </li>
             <li>
               <Link to="/spinner">Spinner</Link>
+            </li>
+            <li>
+              <Link to="/progress">Progress</Link>
             </li>
             <li>
               <Link to="/form">Form</Link>
@@ -99,6 +107,8 @@ ReactDOM.render(
           <Route path="/input" component={InputExample} />
           <Route path="/select" component={SelectExample} />
           <Route path="/autoComplete" component={AutoCompleteExample} />
+          <Route path="/upload" component={UploadExample} />
+          <Route path="/progress" component={ProgressExample} />
         </Content>
       </Layout>
       <Footer className="site-footer">&copy; larry-sss</Footer>

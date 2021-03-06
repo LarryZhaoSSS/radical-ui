@@ -10,7 +10,17 @@ $help-color: #9c27b0;
 $danger-color: #d32f2f;
 $border-radius: 3px;
 
-$white:    #fff !default;
+$theme-colors: (
+  'main': $main-color,
+  'secondary': $secondary-color,
+  'success': $success-color,
+  'info': $info-color,
+  'warning': $warning-color,
+  'help': $help-color,
+  'danger': $danger-color,
+);
+
+$white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -20,10 +30,11 @@ $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$black:    #000 !default;
+$black: #000 !default;
 
 $font-weight-normal: 400 !default;
 $font-weight-bold: 700 !default;
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
 
 $body-color: #212529;
 // menu
@@ -93,19 +104,26 @@ $input-group-addon-color: $input-color !default;
 $input-group-addon-bg: #e9ecef !default;
 $input-group-addon-border-color: $input-border-color !default;
 
-
 // Navs
 
-$nav-link-padding-y:                .5rem !default;
-$nav-link-padding-x:                1rem !default;
-$nav-link-disabled-color:           $gray-600 !default;
+$nav-link-padding-y: 0.5rem !default;
+$nav-link-padding-x: 1rem !default;
+$nav-link-disabled-color: $gray-600 !default;
 
-$nav-tabs-border-color:             $gray-300 !default;
-$nav-tabs-border-width:             1px !default;
-$nav-tabs-border-radius:            4px !default;
-$nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color !default;
-$nav-tabs-link-hover-color:         $main-color !default;
-$nav-tabs-link-active-color:        $main-color !default;
-$nav-tabs-link-active-bg:           $white !default;
+$nav-tabs-border-color: $gray-300 !default;
+$nav-tabs-border-width: 1px !default;
+$nav-tabs-border-radius: 4px !default;
+$nav-tabs-link-hover-border-color: $gray-200 $gray-200 $nav-tabs-border-color !default;
+$nav-tabs-link-hover-color: $main-color !default;
+$nav-tabs-link-active-color: $main-color !default;
+$nav-tabs-link-active-bg: $white !default;
 $nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
-$nav-tabs-content-margin:           1rem !default;
+$nav-tabs-content-margin: 1rem !default;
+
+// Progress bars
+
+$progress-font-size: $font-size-base * 0.75 !default;
+$progress-bg: $gray-200 !default;
+$progress-border-radius: $border-radius !default;
+$progress-bar-color: $white !default;
+$progress-bar-transition: width 0.6s ease !default;
