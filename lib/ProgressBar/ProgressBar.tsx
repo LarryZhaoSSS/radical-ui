@@ -5,7 +5,7 @@ export interface ProgressProps {
   strokeHeight?: number;
   showText?: boolean;
   styles?: React.CSSProperties;
-  theme?: | 'main'
+  theme?:  'main'
   | 'danger'
   | 'normal'
   | 'Secondary'
@@ -16,7 +16,7 @@ export interface ProgressProps {
   format?:(percent:number)=>string
 }
 
-const Progress: FC<ProgressProps> = (props) => {
+const ProgressBar: FC<ProgressProps> = (props) => {
   const {
     percent,
     strokeHeight,
@@ -46,10 +46,10 @@ const Progress: FC<ProgressProps> = (props) => {
   )
 }
 
-Progress.defaultProps = {
-  strokeHeight: 15,
+ProgressBar.defaultProps = {
+  strokeHeight: 16,
   showText: true,
   theme: "main",
 }
 
-export {Progress}
+export {ProgressBar}

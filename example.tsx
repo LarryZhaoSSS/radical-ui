@@ -24,7 +24,7 @@ import { SelectExample } from './lib/select/select.example';
 import { TabExample } from './lib/Tabs/tab.example';
 import { AutoCompleteExample } from './lib/AutoComplete/AutoComplete.example';
 import { UploadExample } from './lib/Uploader/uploader.example';
-import { ProgressExample } from './lib/Progress/progress.example';
+import { ProgressExample } from './lib/ProgressBar/progress.example';
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
@@ -78,7 +78,7 @@ ReactDOM.render(
               <Link to="/spinner">Spinner</Link>
             </li>
             <li>
-              <Link to="/progress">Progress</Link>
+              <Link to="/progress">ProgressBar</Link>
             </li>
             <li>
               <Link to="/form">Form</Link>
