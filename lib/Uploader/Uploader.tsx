@@ -2,6 +2,7 @@ import React, { FC, useRef, ChangeEvent, useState } from 'react'
 import axios from 'axios'
 import { UploadList } from './UploadList'
 import { Dragger } from './Dragger'
+import './upload.scss'
 export type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'error'
 export interface UploadFile {
   uid: string;
@@ -126,7 +127,7 @@ const Upload: FC<UploadProps> = (props) => {
     axios.post(action, formData, {
       headers: {
         ...headers,
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'multipart/form-data',
       },
       withCredentials,
       onUploadProgress: (e) => {
@@ -165,9 +166,9 @@ const Upload: FC<UploadProps> = (props) => {
 
   return (
     <div
-      className="viking-upload-component"
+      className="r-parts-upload-component"
     >
-      <div className="viking-upload-input"
+      <div className="r-parts-upload-input"
         style={{display: 'inline-block'}}
         onClick={handleClick}>
           {drag ?
@@ -177,7 +178,7 @@ const Upload: FC<UploadProps> = (props) => {
             children
           }
         <input
-          className="viking-file-input"
+          className="r-parts-file-input"
           style={{display: 'none'}}
           ref={fileInput}
           onChange={handleFileChange}

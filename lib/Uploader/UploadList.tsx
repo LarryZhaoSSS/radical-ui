@@ -14,16 +14,16 @@ export const UploadList: FC<UploadListProps> = (props) => {
   } = props
 
   return (
-    <ul className="viking-upload-list">
+    <ul className="r-parts-upload-list">
       {fileList.map(item => {
         return (
-          <li className="viking-upload-list-item" key={item.uid}>
+          <li className="r-parts-upload-list-item" key={item.uid}>
             <span className={`file-name file-name-${item.status}`}>
               <Icon name="file" />
               {item.name}
             </span>
             <span className="file-status">
-              {(item.status === 'uploading' || item.status === 'ready') && <Icon name="spinner"  />}
+              {(item.status === 'uploading' || item.status === 'ready') && <Icon name="spinner" spin  />}
               {item.status === 'success' && <Icon name="check-circle"  />}
               {item.status === 'error' && <Icon name="times-circle"  />}
             </span>
