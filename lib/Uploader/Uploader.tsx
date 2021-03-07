@@ -166,9 +166,9 @@ const Upload: FC<UploadProps> = (props) => {
 
   return (
     <div
-      className="r-parts-upload-component"
+      className="viking-upload-component"
     >
-      <div className="r-parts-upload-input"
+      <div className="viking-upload-input"
         style={{display: 'inline-block'}}
         onClick={handleClick}>
           {drag ?
@@ -178,7 +178,7 @@ const Upload: FC<UploadProps> = (props) => {
             children
           }
         <input
-          className="r-parts-file-input"
+          className="viking-file-input"
           style={{display: 'none'}}
           ref={fileInput}
           onChange={handleFileChange}
