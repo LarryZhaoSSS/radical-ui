@@ -1,18 +1,12 @@
 import React, { FC } from 'react'
 import './progress.scss'
+import { ThemeColor } from '../helpers/CommonTypes';
 export interface ProgressProps {
   percent: number;
   strokeHeight?: number;
   showText?: boolean;
   styles?: React.CSSProperties;
-  theme?:  'main'
-  | 'danger'
-  | 'normal'
-  | 'Secondary'
-  | 'Success'
-  | 'info'
-  | 'warning'
-  | 'help';
+  theme?:  ThemeColor;
   format?:(percent:number)=>string
 }
 

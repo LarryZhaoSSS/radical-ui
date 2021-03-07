@@ -19,7 +19,8 @@ export const IconDemo = () => {
       <Icon name="align-left" />
       <Icon name="android" />
       <Icon name="arrow-circle-down" />
-      <Icon name="alipay" />
+      <Icon name="spinner" spin />
+      <Icon name="check-circle" theme='Success'  />
     </Wrapper>
   );
 };

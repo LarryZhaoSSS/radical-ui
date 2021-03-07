@@ -3,7 +3,6 @@ export const iconNames = [
   'align-justify',
   'align-left',
   'align-right',
-  'alipay',
   'android',
   'angle-double-down',
   'angle-double-left',

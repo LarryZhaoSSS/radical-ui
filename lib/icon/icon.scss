@@ -1,6 +1,24 @@
+@import '../helper.scss';
 .r-parts-icon{
   width: 1.4em;
   height: 1.4em;
   display: inline-block;
   fill: currentColor;
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  &.spin {
+    animation: spin 1s infinite linear;
+  }
+
+  @each $key, $val in $theme-colors {
+    &.color-#{$key} {
+      fill:$val;
+    }
+  }
 }
