@@ -1,56 +1,57 @@
-import React, { FC, useState } from 'react'
-import classNames from 'classnames'
-import { Transition } from '../Transition/Transition'
-import Icon from '../icon/Icon'
-import './message.scss'
-export type MessageType = 'success' | 'default' | 'danger' | 'warning'
+import React, { FC, useState } from 'react';
+import classNames from 'classnames';
+import { Transition } from '../Transition/Transition';
+import Icon from '../icon/Icon';
+import './message.scss';
+export type MessageType = 'Success' | 'info' | 'warning' | 'error';
 
-export interface AlertProps {
+export interface MessageProps {
   title: string;
-  description?: string;
   type?: MessageType;
   onClose?: () => void;
   closable?: boolean;
 }
+const alertIconMap = {
+  Success: <Icon name="check" />,
+  warning: <Icon name="exclamation-triangle" />,
+  error: <Icon name="times-circle" />,
+  info: <Icon name="exclamation-circle" />,
+};
+const generateAlertIcon = (type?: MessageType) => {
+  if (type) {
+    return alertIconMap?.[type] || <></>;
+  }
+  return <></>;
+};
+export const Message: FC<MessageProps> = props => {
+  const [hide, setHide] = useState(false);
+  const { title,  type, onClose, closable } = props;
+  const classes = classNames('r-parts-alert', {
+    [`r-parts-alert-${type}`]: type,
+  });
 
-
-export const Message: FC<AlertProps> = (props) => {
-  const [ hide, setHide ] = useState(false)
-  const {
-    title,
-    description,
-    type,
-    onClose,
-    closable
-  } = props
-  const classes = classNames('viking-alert', {
-    [`viking-alert-${type}`]: type,
-  })
-  const titleClass = classNames('viking-alert-title', {
-    'bold-title': description
-  })
   const handleClose = (e: React.MouseEvent) => {
     if (onClose) {
-      onClose()
+      onClose();
     }
-    setHide(true)
-  }
+    setHide(true);
+  };
   return (
-    <Transition
-      in={!hide}
-      timeout={300}
-      animation="zoom-in-top"
-    >
+    <Transition in={!hide} timeout={300} animation="zoom-in-top">
       <div className={classes}>
-        <span className={titleClass}>{title}</span>
-        {description && <p className="viking-alert-desc">{description}</p>}
-        {closable && <span className="viking-alert-close" onClick={handleClose}><Icon name="times"/></span>}
+          <span className="r-parts-title-icon">{generateAlertIcon(type)}</span>
+          <span>{title}</span>
+          {closable && (
+            <span className="r-parts-alert-close" onClick={handleClose}>
+              <Icon name="times" />
+            </span>
+          )}
       </div>
     </Transition>
-  )
-}
+  );
+};
 
 Message.defaultProps = {
-  type: 'default',
+  type: 'info',
   closable: true,
-}
+};

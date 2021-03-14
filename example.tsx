@@ -25,6 +25,7 @@ import { TabExample } from './lib/Tabs/tab.example';
 import { AutoCompleteExample } from './lib/AutoComplete/AutoComplete.example';
 import { UploadExample } from './lib/Uploader/uploader.example';
 import { ProgressExample } from './lib/ProgressBar/progress.example';
+import { MessageExample } from './lib/Message/MessageExample';
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
@@ -52,6 +53,9 @@ ReactDOM.render(
             </li>
             <li>
               <Link to="/dialog"> Dialog </Link>
+            </li>
+            <li>
+              <Link to="/message"> Message </Link>
             </li>
             <li>
               <Link to="/layout"> Layout </Link>
@@ -109,6 +113,7 @@ ReactDOM.render(
           <Route path="/autoComplete" component={AutoCompleteExample} />
           <Route path="/upload" component={UploadExample} />
           <Route path="/progress" component={ProgressExample} />
+          <Route path="/message" component={MessageExample} />
         </Content>
       </Layout>
       <Footer className="site-footer">&copy; larry-sss</Footer>

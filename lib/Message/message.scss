@@ -1,35 +1,77 @@
 @import '../helper';
-$alert-colors:
-(
-  "default":    $main-color,
-  "Success":    $success-color,
-  "warning":    $warning-color,
-  "danger":     $danger-color,
-);
-.viking-alert {
+
+$alert-Success-bg-color: #c8e6c9;
+$alert-Success-font-color: #224a23;
+
+$alert-info-bg-color: #b3e5fc;
+$alert-info-font-color: #044868;
+
+$alert-warning-bg-color: #ffecb3;
+$alert-warning-font-color: #6d5100;
+
+$alert-error-bg-color: #ffcdd2;
+$alert-error-font-color: #73000c;
+.r-parts-alert {
   position: relative;
   padding: $alert-padding-y $alert-padding-x;
   margin-bottom: $alert-margin-bottom;
   border: $alert-border-width solid transparent;
   border-radius: $alert-border-radius;
-  .viking-alert-close {
+  display: flex;
+  align-items: center;
+  .r-parts-title-icon {
+    margin-right: 8px;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .r-parts-alert-close {
     position: absolute;
     top: 0;
     right: 0;
     padding: $alert-padding-y $alert-padding-x;
     color: inherit;
     cursor: pointer;
+    .r-parts-icon {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+      }
+    }
   }
   .bold-title {
     font-weight: $font-weight-bold;
   }
-  .viking-alert-desc {
+  .r-parts-alert-title {
+    line-height: 24px;
+  }
+  .r-parts-alert-desc {
     font-size: $alert-description-font-size;
     margin: $alert-description-top-margin 0 0;
   }
 }
-@each $color, $value in $alert-colors {
-  .viking-alert-#{$color} {
-    @include alert-style($value, darken($value, 5%), $white);
-  }
+
+.r-parts-alert-Success {
+  background-color: $alert-Success-bg-color;
+  border-left: 6px solid $success-color;
+  color: $alert-Success-font-color;
+}
+.r-parts-alert-info {
+  background-color: $alert-info-bg-color;
+  border-left: 6px solid $main-color;
+  color: $alert-info-font-color;
+}
+
+.r-parts-alert-warning {
+  background-color: $alert-warning-bg-color;
+  border-left: 6px solid $warning-color;
+  color: $alert-warning-font-color;
+}
+
+.r-parts-alert-error {
+  background-color: $alert-error-bg-color;
+  border-left: 6px solid $danger-color;
+  color: $alert-error-font-color;
 }
