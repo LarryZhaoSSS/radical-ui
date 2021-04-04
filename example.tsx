@@ -26,12 +26,16 @@ import { AutoCompleteExample } from './lib/AutoComplete/AutoComplete.example';
 import { UploadExample } from './lib/Uploader/uploader.example';
 import { ProgressExample } from './lib/ProgressBar/progress.example';
 import { MessageExample } from './lib/Message/MessageExample';
+// @ts-ignore
+import logo from './logo.png'
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
     <Layout className="site-page">
       <Header>
-        <div>r-parts ui</div>
+        <div className="logo">
+          <img width="104" height="104"  src={logo} />
+        </div>
       </Header>
       <Layout>
         <Aside className="site-aside">

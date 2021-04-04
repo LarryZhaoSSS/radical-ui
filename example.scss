@@ -33,6 +33,13 @@ $main-color: #2196f3;
 $border-color: #eee;
 .site-page {
   min-height: 100vh;
+  .logo {
+    display: flex;
+    align-items: center;
+    max-width: 12em;
+    margin-left:1em;
+    height:72px;
+  }
 }
 
 .site-aside {
