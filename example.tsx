@@ -28,21 +28,27 @@ import { ProgressExample } from './lib/ProgressBar/progress.example';
 import { MessageExample } from './lib/Message/MessageExample';
 // @ts-ignore
 import logo from './logo.png'
+// @ts-ignore
+import githubIcon from './github.png'
+import { InstallPage } from './lib/intall/Install';
 require('!!raw-loader!./lib/icon/icon.example.tsx');
 ReactDOM.render(
   <Router>
     <Layout className="site-page">
-      <Header>
+      <Header className="header-wrapper">
         <div className="logo">
           <img width="104" height="104"  src={logo} />
+        </div>
+        <div className="space"></div>
+        <div className="header-right">
+          <a href="https://github.com/LarryKameZhao/radical-ui" target="_blank"> <img width="48" height="48"  src={githubIcon} /></a>
         </div>
       </Header>
       <Layout>
         <Aside className="site-aside">
           <h2>Development</h2>
           <ul>
-            <li><a href="">install</a></li>
-            <li><a href="">quick start</a></li>
+            <li><Link to="/install"> quick start </Link></li>
           </ul>
           <h2>Components</h2>
           <ul>
@@ -88,7 +94,7 @@ ReactDOM.render(
             <li>
               <Link to="/progress">ProgressBar</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/form">Form</Link>
             </li>
             <li>
@@ -96,7 +102,7 @@ ReactDOM.render(
             </li>
             <li>
               <Link to="/tree">tree</Link>
-            </li>
+            </li> */}
           </ul>
         </Aside>
         <Content className="site-main">
@@ -118,6 +124,7 @@ ReactDOM.render(
           <Route path="/upload" component={UploadExample} />
           <Route path="/progress" component={ProgressExample} />
           <Route path="/message" component={MessageExample} />
+          <Route path="/install" component={InstallPage} />
         </Content>
       </Layout>
       <Footer className="site-footer">&copy; larry-sss</Footer>
