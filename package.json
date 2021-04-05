@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LarryKameZhao/r-parts"
+    "url": "git+https://github.com/LarryKameZhao/radical-ui"
   },
   "keywords": [],
   "author": "LarrySSS",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/LarryKameZhao/r-parts/issues"
+    "url": "https://github.com/LarryKameZhao/radical-ui/issues"
   },
-  "homepage": "https://github.com/LarryKameZhao/r-parts",
+  "homepage": "https://github.com/LarryKameZhao/radical-ui",
   "devDependencies": {
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
