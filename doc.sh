@@ -1,9 +1,8 @@
 #!/bin/env bash
 yarn doc
-git push origin :gh-pages
-git checkout -b gh-pages
+git checkout  gh-pages
 mv - f doc/* ./
 git add .
 git commit -m "update gh-pages"
-git push origin gh-pages
+git push
 git checkout -
