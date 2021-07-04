@@ -78,7 +78,7 @@ export const SelectExample = () => {
             console.log(value);
           }}
           onVisibleChange={visible => {}}
-          placeholder="请选择"
+          placeholder="select a city"
         >
           <Option value="London" />
           <Option value="New York" />
